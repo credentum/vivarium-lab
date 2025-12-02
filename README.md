@@ -177,7 +177,7 @@ python scripts/movable_feast_7_cot_ablation.py
 ```bibtex
 @misc{movablefeast2024,
   title={Movable Feast: LLMs Know 春节 but Can't Map Gregorian Dates to Lunar Holidays},
-  author={Credentum Vivarium Lab and Claude (Anthropic) and Gemini (Google) and ChatGPT (OpenAI) and Grok (xAI)},
+  author={Vivarium Lab at Credentum.ai and Claude (Anthropic) and Gemini (Google) and ChatGPT (OpenAI) and Grok (xAI)},
   year={2024},
   howpublished={GitHub: \url{https://github.com/credentum/movable_feast}},
   note={Human-AI collaborative research}
@@ -241,7 +241,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
-This research was conducted at Credentum Vivarium Lab with contributions from:
+This research was conducted by Vivarium Lab at Credentum.ai with contributions from:
 
 **AI Research Assistants:**
 - **Claude** (Anthropic) - Primary development, experiment execution, analysis
