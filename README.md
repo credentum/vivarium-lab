@@ -76,17 +76,17 @@ movable_feast/
 │   └── MOVABLE_FEAST_FINAL.md         # Full paper/write-up
 │
 ├── scripts/
-│   ├── movable_feast_1.py             # Core recognition study
-│   ├── movable_feast_1_1.py           # Top-up: Qwen-zh LNY
-│   ├── movable_feast_1_2.py           # Robustness confirmations
-│   ├── movable_feast_1_3.py           # Top-up: underpowered cells
-│   ├── movable_feast_1_4.py           # Top-up: Llama-zh LNY
-│   ├── movable_feast_2.py             # 国庆节 + lunar phrase tests
-│   ├── movable_feast_3.py             # 端午/中秋, reverse mapping
-│   ├── movable_feast_4.py             # Easter, Tool A/B, few-shot
-│   ├── movable_feast_5.py             # Synonym/format/temp sweeps
-│   ├── movable_feast_6.py             # Cross-family, reconciliation
-│   └── movable_feast_7.py             # Key finding: examples vs steps
+│   ├── movable_feast_1_main.py              # Core recognition study
+│   ├── movable_feast_1_1_topup_qwen.py      # Top-up: Qwen-zh LNY
+│   ├── movable_feast_1_2_robustness.py      # Robustness confirmations
+│   ├── movable_feast_1_3_topup_underpowered.py  # Top-up: underpowered cells
+│   ├── movable_feast_1_4_topup_llama.py     # Top-up: Llama-zh LNY
+│   ├── movable_feast_2_causality.py         # 国庆节 + lunar phrase tests
+│   ├── movable_feast_3_generalization.py    # 端午/中秋, reverse mapping
+│   ├── movable_feast_4_causal_proof.py      # Easter, Tool A/B, few-shot
+│   ├── movable_feast_5_ablations.py         # Synonym/format/temp sweeps
+│   ├── movable_feast_6_cross_family.py      # Cross-family, reconciliation
+│   └── movable_feast_7_cot_ablation.py      # Key finding: examples vs steps
 │
 └── results/
     ├── movable_feast_1_results_*.json
@@ -118,16 +118,16 @@ export OPENROUTER_API_KEY="your-key-here"
 
 ```bash
 # Core finding (study 7 - most important)
-python scripts/movable_feast_7.py
+python scripts/movable_feast_7_cot_ablation.py
 
 # Full study sequence
-python scripts/movable_feast_1.py
-python scripts/movable_feast_2.py
-python scripts/movable_feast_3.py
-python scripts/movable_feast_4.py
-python scripts/movable_feast_5.py
-python scripts/movable_feast_6.py
-python scripts/movable_feast_7.py
+python scripts/movable_feast_1_main.py
+python scripts/movable_feast_2_causality.py
+python scripts/movable_feast_3_generalization.py
+python scripts/movable_feast_4_causal_proof.py
+python scripts/movable_feast_5_ablations.py
+python scripts/movable_feast_6_cross_family.py
+python scripts/movable_feast_7_cot_ablation.py
 ```
 
 ### Expected Runtime
