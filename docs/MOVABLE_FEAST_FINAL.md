@@ -1,4 +1,4 @@
-# Project Vivarium - Definitive Final Results
+# Movable Feast - Definitive Final Results
 
 ## Title
 **"Lunar Time Without a Map: LLMs Know 春节 but Fail Gregorian↔Lunar Mapping"**
@@ -427,14 +427,14 @@ prompt = """请按步骤推理：
 
 | File | Description |
 |------|-------------|
-| `vivarium_v6_1_*.json` | Main study + top-ups |
-| `vivarium_v6_2_results_*.json` | Causality experiments (国庆节, lunar phrase) |
-| `vivarium_v6_3_results_*.json` | Generalization (端午/中秋, reverse mapping, prose few-shot) |
-| `vivarium_v6_4_results_*.json` | Causal proof (Easter, Tool A/B, table few-shot) |
-| `vivarium_v6_5_results_*.json` | Comprehensive ablations |
-| `vivarium_v6_6_results_*.json` | Cross-family, v6 reconciliation |
-| `vivarium_v6_7_results_*.json` | CoT step ablation (key finding) |
-| `VIVARIUM_DEFINITIVE_FINAL.md` | This document |
+| `movable_feast_1_results_*.json` | Main study + top-ups |
+| `movable_feast_2_results_*.json` | Causality experiments (国庆节, lunar phrase) |
+| `movable_feast_3_results_*.json` | Generalization (端午/中秋, reverse mapping, prose few-shot) |
+| `movable_feast_4_results_*.json` | Causal proof (Easter, Tool A/B, table few-shot) |
+| `movable_feast_5_results_*.json` | Comprehensive ablations |
+| `movable_feast_6_results_*.json` | Cross-family, reconciliation |
+| `movable_feast_7_results_*.json` | CoT step ablation (key finding) |
+| `MOVABLE_FEAST_FINAL.md` | This document |
 
 ---
 
