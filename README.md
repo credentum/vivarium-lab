@@ -175,10 +175,10 @@ python scripts/movable_feast_7_cot_ablation.py
 ## Citation
 
 ```bibtex
-@misc{movablefeast2024,
+@misc{movablefeast2025,
   title={Movable Feast: LLMs Know 春节 but Can't Map Gregorian Dates to Lunar Holidays},
-  author={Vivarium Lab at Credentum.ai and Claude (Anthropic) and Gemini (Google) and ChatGPT (OpenAI) and Grok (xAI)},
-  year={2024},
+  author={Vivarium Lab (Credentum.ai) and Claude (Anthropic) and Gemini (Google) and ChatGPT (OpenAI) and Grok (xAI)},
+  year={2025},
   howpublished={GitHub: \url{https://github.com/credentum/movable_feast}},
   note={Human-AI collaborative research}
 }
