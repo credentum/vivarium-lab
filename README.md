@@ -70,33 +70,37 @@ What holiday is 2025-01-29?
 ## Repository Structure
 
 ```
-movable-feast/
+movable_feast/
 ├── README.md                          # This file
-├── VIVARIUM_DEFINITIVE_FINAL.md       # Full paper/write-up
-├── requirements.txt                   # Python dependencies
+├── docs/
+│   └── MOVABLE_FEAST_FINAL.md         # Full paper/write-up
 │
 ├── scripts/
-│   ├── vivarium_v6_1_main.py          # Core recognition study
-│   ├── vivarium_v6_2_causality.py     # 国庆节 + lunar phrase tests
-│   ├── vivarium_v6_3_generalization.py # 端午/中秋, reverse mapping
-│   ├── vivarium_v6_4_causal_proof.py  # Easter, Tool A/B, few-shot
-│   ├── vivarium_v6_5_ablations.py     # Synonym/format/temp sweeps
-│   ├── vivarium_v6_6_polish.py        # Cross-family, v6 reconciliation
-│   └── vivarium_v6_7_cot_ablation.py  # Key finding: examples vs steps
+│   ├── movable_feast_1.py             # Core recognition study
+│   ├── movable_feast_1_1.py           # Top-up: Qwen-zh LNY
+│   ├── movable_feast_1_2.py           # Robustness confirmations
+│   ├── movable_feast_1_3.py           # Top-up: underpowered cells
+│   ├── movable_feast_1_4.py           # Top-up: Llama-zh LNY
+│   ├── movable_feast_2.py             # 国庆节 + lunar phrase tests
+│   ├── movable_feast_3.py             # 端午/中秋, reverse mapping
+│   ├── movable_feast_4.py             # Easter, Tool A/B, few-shot
+│   ├── movable_feast_5.py             # Synonym/format/temp sweeps
+│   ├── movable_feast_6.py             # Cross-family, reconciliation
+│   └── movable_feast_7.py             # Key finding: examples vs steps
 │
 └── results/
-    ├── vivarium_v6_1_results_*.json
-    ├── vivarium_v6_1_1_results_*.json  # Top-ups
-    ├── vivarium_v6_1_2_results_*.json
-    ├── vivarium_v6_1_3_results_*.json
-    ├── vivarium_v6_1_4_results_*.json
-    ├── vivarium_v6_2_results_*.json
-    ├── vivarium_v6_3_results_*.json
-    ├── vivarium_v6_4_results_*.json
-    ├── vivarium_v6_5_results_*.json
-    ├── vivarium_v6_6_results_*.json
-    ├── vivarium_v6_6_part4_results_*.json
-    └── vivarium_v6_7_results_*.json
+    ├── movable_feast_1_results_*.json
+    ├── movable_feast_1_1_results_*.json
+    ├── movable_feast_1_2_results_*.json
+    ├── movable_feast_1_3_results_*.json
+    ├── movable_feast_1_4_results_*.json
+    ├── movable_feast_2_results_*.json
+    ├── movable_feast_3_results_*.json
+    ├── movable_feast_4_results_*.json
+    ├── movable_feast_5_results_*.json
+    ├── movable_feast_6_results_*.json
+    ├── movable_feast_6_part4_*.json
+    └── movable_feast_7_results_*.json
 ```
 
 ---
@@ -113,30 +117,30 @@ export OPENROUTER_API_KEY="your-key-here"
 ### Run Experiments
 
 ```bash
-# Core finding (v6.7 - most important)
-python scripts/vivarium_v6_7_cot_ablation.py
+# Core finding (study 7 - most important)
+python scripts/movable_feast_7.py
 
 # Full study sequence
-python scripts/vivarium_v6_1_main.py
-python scripts/vivarium_v6_2_causality.py
-python scripts/vivarium_v6_3_generalization.py
-python scripts/vivarium_v6_4_causal_proof.py
-python scripts/vivarium_v6_5_ablations.py
-python scripts/vivarium_v6_6_polish.py
-python scripts/vivarium_v6_7_cot_ablation.py
+python scripts/movable_feast_1.py
+python scripts/movable_feast_2.py
+python scripts/movable_feast_3.py
+python scripts/movable_feast_4.py
+python scripts/movable_feast_5.py
+python scripts/movable_feast_6.py
+python scripts/movable_feast_7.py
 ```
 
 ### Expected Runtime
 
 | Script | Trials | ~Time |
 |--------|--------|-------|
-| v6.1 | 160 | 15 min |
-| v6.2 | 60 | 5 min |
-| v6.3 | 140 | 12 min |
-| v6.4 | 200 | 18 min |
-| v6.5 | 300 | 25 min |
-| v6.6 | 180 | 15 min |
-| v6.7 | 180 | 15 min |
+| Study 1 | 160 | 15 min |
+| Study 2 | 60 | 5 min |
+| Study 3 | 140 | 12 min |
+| Study 4 | 200 | 18 min |
+| Study 5 | 300 | 25 min |
+| Study 6 | 180 | 15 min |
+| Study 7 | 180 | 15 min |
 
 ---
 
@@ -184,7 +188,7 @@ python scripts/vivarium_v6_7_cot_ablation.py
 
 ## Key Insight
 
-The v6.7 ablation reveals that **worked examples do the heavy lifting, not step scaffolds**:
+The Study 7 ablation reveals that **worked examples do the heavy lifting, not step scaffolds**:
 
 | Condition | Has Examples? | Has Steps? | Rate |
 |-----------|---------------|------------|------|
