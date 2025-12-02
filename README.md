@@ -237,7 +237,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
-This research was conducted at Vivarium Lab.
+This research was conducted at Credentum's Vivarium Lab.
 
 ---
 
