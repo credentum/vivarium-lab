@@ -1,0 +1,6 @@
+# Core dependencies for Movable Feast experiments
+# Python 3.10+ recommended
+
+openai==2.8.1
+anthropic==0.75.0
+python-dotenv==1.2.1

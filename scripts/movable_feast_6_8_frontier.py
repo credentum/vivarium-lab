@@ -4,17 +4,22 @@ Movable Feast v6.8 - Frontier Model Validation (December 2025)
 ==============================================================
 
 Run the key v6.7 finding (examples vs steps) against latest frontier models:
-- Grok-4 (xAI) - via OpenRouter (free)
-- GPT-5.1 (OpenAI) - via direct API
-- Claude 4.5 (Anthropic) - via direct API
+- GPT-5.1 (OpenAI) - via direct API (Chat Completions)
+- Claude Opus 4.5 (Anthropic) - via direct API
+- Grok 4.1 Fast (xAI) - via OpenRouter
+- Gemini 3 Pro Preview (Google) - via OpenRouter
 
 This validates that the pattern-matching finding generalizes across
 the most capable models available.
 
 Requirements:
-- OPENROUTER_API_KEY (for Grok-4)
 - OPENAI_API_KEY (for GPT-5.1)
-- ANTHROPIC_API_KEY (for Claude 4.5)
+- ANTHROPIC_API_KEY (for Claude Opus 4.5)
+- OPENROUTER_API_KEY (for Grok-4.1 and Gemini-3-Pro)
+
+Usage:
+    # Ensure .env file exists with API keys, then:
+    python movable_feast_6_8_frontier.py
 """
 
 import os
@@ -26,13 +31,22 @@ import math
 from datetime import datetime
 from typing import Optional, Tuple, Dict, List
 from abc import ABC, abstractmethod
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get script directory for relative paths
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(os.path.dirname(SCRIPT_DIR), 'results')
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler('/home/claude/movable_feast_v6_8.log')
+        logging.FileHandler(os.path.join(RESULTS_DIR, 'movable_feast_v6_8.log'))
     ]
 )
 logger = logging.getLogger(__name__)
@@ -209,28 +223,34 @@ class ModelClient(ABC):
 
 
 class OpenRouterClient(ModelClient):
-    """For Grok-4 via OpenRouter"""
-    
-    def __init__(self, model: str = "x-ai/grok-4-0709"):
+    """For models via OpenRouter (Grok, Gemini, etc.)"""
+
+    def __init__(self, model: str = "x-ai/grok-4.1-fast:free", display_name: str = None):
         import openai
         self.client = openai.OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=os.environ.get("OPENROUTER_API_KEY"),
         )
         self.model = model
-    
+        self._display_name = display_name or model.split("/")[-1].split(":")[0]
+
     @property
     def name(self) -> str:
-        return f"Grok-4 ({self.model})"
+        return self._display_name
     
     def get_response(self, prompt: str) -> Tuple[Optional[str], float]:
         start = time.time()
         try:
+            # Gemini models need higher max_tokens due to thinking tokens
+            max_tokens = CONFIG["max_tokens"]
+            if "gemini" in self.model.lower():
+                max_tokens = 1000  # Gemini uses ~500 tokens for thinking
+
             resp = self.client.chat.completions.create(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=CONFIG["temperature"],
-                max_tokens=CONFIG["max_tokens"],
+                max_tokens=max_tokens,
             )
             return resp.choices[0].message.content, time.time() - start
         except Exception as e:
@@ -239,27 +259,28 @@ class OpenRouterClient(ModelClient):
 
 
 class OpenAIClient(ModelClient):
-    """For GPT-5.1 via direct API"""
-    
+    """For GPT-5.1 via direct API (uses chat completions with max_completion_tokens)"""
+
     def __init__(self, model: str = "gpt-5.1"):
         import openai
         self.client = openai.OpenAI(
             api_key=os.environ.get("OPENAI_API_KEY"),
         )
         self.model = model
-    
+
     @property
     def name(self) -> str:
         return f"GPT-5.1 ({self.model})"
-    
+
     def get_response(self, prompt: str) -> Tuple[Optional[str], float]:
         start = time.time()
         try:
+            # GPT-5.1 uses chat completions with max_completion_tokens (not max_tokens)
             resp = self.client.chat.completions.create(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=CONFIG["temperature"],
-                max_tokens=CONFIG["max_tokens"],
+                max_completion_tokens=CONFIG["max_tokens"],
             )
             return resp.choices[0].message.content, time.time() - start
         except Exception as e:
@@ -268,18 +289,18 @@ class OpenAIClient(ModelClient):
 
 
 class AnthropicClient(ModelClient):
-    """For Claude 4.5 via direct API"""
-    
-    def __init__(self, model: str = "claude-sonnet-4-5-20250929"):
+    """For Claude Opus 4.5 via direct API"""
+
+    def __init__(self, model: str = "claude-opus-4-5-20251101"):
         import anthropic
         self.client = anthropic.Anthropic(
             api_key=os.environ.get("ANTHROPIC_API_KEY"),
         )
         self.model = model
-    
+
     @property
     def name(self) -> str:
-        return f"Claude 4.5 ({self.model})"
+        return f"Claude-Opus-4.5 ({self.model})"
     
     def get_response(self, prompt: str) -> Tuple[Optional[str], float]:
         start = time.time()
@@ -486,27 +507,37 @@ def main():
     
     # Initialize clients based on available API keys
     clients = []
-    
-    if os.environ.get("OPENROUTER_API_KEY"):
-        try:
-            clients.append(OpenRouterClient("x-ai/grok-4-0709"))
-            logger.info("✓ Grok-4 (OpenRouter) ready")
-        except Exception as e:
-            logger.warning(f"Could not initialize Grok-4: {e}")
-    
+
+    # GPT-5.1 (OpenAI direct API)
     if os.environ.get("OPENAI_API_KEY"):
         try:
-            clients.append(OpenAIClient("gpt-4o"))  # Use gpt-4o as fallback if gpt-5.1 not available
-            logger.info("✓ GPT (OpenAI) ready")
+            clients.append(OpenAIClient("gpt-5.1"))
+            logger.info("✓ GPT-5.1 (OpenAI) ready")
         except Exception as e:
-            logger.warning(f"Could not initialize OpenAI: {e}")
-    
+            logger.warning(f"Could not initialize GPT-5.1: {e}")
+
+    # Claude Opus 4.5 (Anthropic direct API)
     if os.environ.get("ANTHROPIC_API_KEY"):
         try:
-            clients.append(AnthropicClient("claude-sonnet-4-5-20250929"))
-            logger.info("✓ Claude 4.5 (Anthropic) ready")
+            clients.append(AnthropicClient("claude-opus-4-5-20251101"))
+            logger.info("✓ Claude-Opus-4.5 (Anthropic) ready")
         except Exception as e:
             logger.warning(f"Could not initialize Claude: {e}")
+
+    # Grok 4.1 Fast (via OpenRouter)
+    if os.environ.get("OPENROUTER_API_KEY"):
+        try:
+            clients.append(OpenRouterClient("x-ai/grok-4.1-fast:free", "Grok-4.1-Fast"))
+            logger.info("✓ Grok-4.1-Fast (OpenRouter) ready")
+        except Exception as e:
+            logger.warning(f"Could not initialize Grok: {e}")
+
+        # Gemini 3 Pro Preview (via OpenRouter)
+        try:
+            clients.append(OpenRouterClient("google/gemini-3-pro-preview", "Gemini-3-Pro"))
+            logger.info("✓ Gemini-3-Pro (OpenRouter) ready")
+        except Exception as e:
+            logger.warning(f"Could not initialize Gemini: {e}")
     
     if not clients:
         logger.error("No API keys found! Set OPENROUTER_API_KEY, OPENAI_API_KEY, or ANTHROPIC_API_KEY")
@@ -531,18 +562,11 @@ def main():
         "timestamp": datetime.now().isoformat(),
     }
     
-    path = f"/home/claude/movable_feast_v6_8_results_{run_id}.json"
+    # Save results to results directory
+    path = os.path.join(RESULTS_DIR, f"movable_feast_v6_8_results_{run_id}.json")
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False, default=str)
     logger.info(f"\nSaved: {path}")
-    
-    try:
-        out_path = f"/mnt/user-data/outputs/movable_feast_v6_8_results_{run_id}.json"
-        with open(out_path, 'w', encoding='utf-8') as f:
-            json.dump(output, f, indent=2, ensure_ascii=False, default=str)
-        logger.info(f"Also saved: {out_path}")
-    except Exception as e:
-        logger.warning(f"Could not save to outputs: {e}")
     
     return output
 

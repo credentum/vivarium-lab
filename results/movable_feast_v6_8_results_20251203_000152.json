@@ -1,0 +1,125 @@
+{
+  "experiment": "MOVABLE FEAST v6.8 - FRONTIER MODEL VALIDATION",
+  "run_id": "20251203_000152",
+  "date": "2025-12-03",
+  "trials_per_cell": 20,
+  "models": [
+    "GPT-5.1",
+    "Claude-Opus-4.5",
+    "Grok-4.1-Fast",
+    "Gemini-3-Pro"
+  ],
+  "model_ids": {
+    "GPT-5.1": "gpt-5.1",
+    "Claude-Opus-4.5": "claude-opus-4-5-20251101",
+    "Grok-4.1-Fast": "x-ai/grok-4.1-fast:free",
+    "Gemini-3-Pro": "google/gemini-3-pro-preview"
+  },
+  "prompts": [
+    "zh_gregorian", "zh_minimal", "zh_examples_only", "zh_full",
+    "vi_gregorian", "vi_minimal", "vi_examples_only", "vi_full",
+    "ko_gregorian", "ko_minimal", "ko_examples_only", "ko_full",
+    "en_gregorian", "en_full"
+  ],
+  "results": {
+    "GPT-5.1": {
+      "zh_gregorian": {"correct": 0, "total": 18, "percent": 0, "errors": 2},
+      "zh_minimal": {"correct": 2, "total": 20, "percent": 10},
+      "zh_examples_only": {"correct": 0, "total": 20, "percent": 0},
+      "zh_full": {"correct": 9, "total": 20, "percent": 45},
+      "vi_gregorian": {"correct": 0, "total": 20, "percent": 0},
+      "vi_minimal": {"correct": 0, "total": 20, "percent": 0},
+      "vi_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "vi_full": {"correct": 0, "total": 20, "percent": 0},
+      "ko_gregorian": {"correct": 0, "total": 20, "percent": 0},
+      "ko_minimal": {"correct": 0, "total": 20, "percent": 0},
+      "ko_examples_only": {"correct": 1, "total": 20, "percent": 5},
+      "ko_full": {"correct": 0, "total": 20, "percent": 0},
+      "en_gregorian": {"correct": 0, "total": 20, "percent": 0},
+      "en_full": {"correct": 20, "total": 20, "percent": 100}
+    },
+    "Claude-Opus-4.5": {
+      "zh_gregorian": {"correct": 16, "total": 20, "percent": 80},
+      "zh_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "zh_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "zh_full": {"correct": 20, "total": 20, "percent": 100},
+      "vi_gregorian": {"correct": 5, "total": 20, "percent": 25},
+      "vi_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "vi_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "vi_full": {"correct": 20, "total": 20, "percent": 100},
+      "ko_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "ko_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "ko_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "ko_full": {"correct": 20, "total": 20, "percent": 100},
+      "en_gregorian": {"correct": 0, "total": 20, "percent": 0},
+      "en_full": {"correct": 20, "total": 20, "percent": 100}
+    },
+    "Grok-4.1-Fast": {
+      "zh_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "zh_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "zh_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "zh_full": {"correct": 20, "total": 20, "percent": 100},
+      "vi_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "vi_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "vi_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "vi_full": {"correct": 20, "total": 20, "percent": 100},
+      "ko_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "ko_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "ko_examples_only": {"correct": 20, "total": 20, "percent": 100},
+      "ko_full": {"correct": 20, "total": 20, "percent": 100},
+      "en_gregorian": {"correct": 17, "total": 20, "percent": 85},
+      "en_full": {"correct": 20, "total": 20, "percent": 100}
+    },
+    "Gemini-3-Pro": {
+      "zh_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "zh_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "zh_examples_only": {"correct": 6, "total": 20, "percent": 30},
+      "zh_full": {"correct": 20, "total": 20, "percent": 100},
+      "vi_gregorian": {"correct": 0, "total": 20, "percent": 0},
+      "vi_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "vi_examples_only": {"correct": 0, "total": 20, "percent": 0},
+      "vi_full": {"correct": 20, "total": 20, "percent": 100},
+      "ko_gregorian": {"correct": 8, "total": 20, "percent": 40},
+      "ko_minimal": {"correct": 20, "total": 20, "percent": 100},
+      "ko_examples_only": {"correct": 0, "total": 20, "percent": 0},
+      "ko_full": {"correct": 14, "total": 20, "percent": 70},
+      "en_gregorian": {"correct": 20, "total": 20, "percent": 100},
+      "en_full": {"correct": 20, "total": 20, "percent": 100}
+    }
+  },
+  "summary": {
+    "GPT-5.1": {
+      "average_percent": 18.6,
+      "total_correct": 52,
+      "total_trials": 278,
+      "perfect_prompts": 2,
+      "zero_prompts": 8
+    },
+    "Claude-Opus-4.5": {
+      "average_percent": 82.5,
+      "total_correct": 231,
+      "total_trials": 280,
+      "perfect_prompts": 10,
+      "zero_prompts": 1
+    },
+    "Grok-4.1-Fast": {
+      "average_percent": 98.9,
+      "total_correct": 277,
+      "total_trials": 280,
+      "perfect_prompts": 13,
+      "zero_prompts": 0
+    },
+    "Gemini-3-Pro": {
+      "average_percent": 67.1,
+      "total_correct": 188,
+      "total_trials": 280,
+      "perfect_prompts": 8,
+      "zero_prompts": 3
+    }
+  },
+  "notes": [
+    "GPT-5.1 had 2 transient 403 errors during zh_gregorian (permission propagation)",
+    "Gemini-3-Pro uses thinking tokens, max_tokens set to 1000 to accommodate",
+    "All models tested with temperature=0 for reproducibility"
+  ]
+}
