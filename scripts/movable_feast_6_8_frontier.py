@@ -4,7 +4,7 @@ Movable Feast v6.8 - Frontier Model Validation (December 2025)
 ==============================================================
 
 Run the key v6.7 finding (examples vs steps) against latest frontier models:
-- GPT-5-Pro (OpenAI) - via direct API (Responses API)
+- GPT-5.1 (OpenAI) - via direct API (Chat Completions)
 - Claude Opus 4.5 (Anthropic) - via direct API
 - Grok 4.1 Fast (xAI) - via OpenRouter
 - Gemini 3 Pro Preview (Google) - via OpenRouter
@@ -13,7 +13,7 @@ This validates that the pattern-matching finding generalizes across
 the most capable models available.
 
 Requirements:
-- OPENAI_API_KEY (for GPT-5-Pro)
+- OPENAI_API_KEY (for GPT-5.1)
 - ANTHROPIC_API_KEY (for Claude Opus 4.5)
 - OPENROUTER_API_KEY (for Grok-4.1 and Gemini-3-Pro)
 
@@ -259,9 +259,9 @@ class OpenRouterClient(ModelClient):
 
 
 class OpenAIClient(ModelClient):
-    """For GPT-5-Pro via direct API (uses new Responses API)"""
+    """For GPT-5.1 via direct API (uses chat completions with max_completion_tokens)"""
 
-    def __init__(self, model: str = "gpt-5-pro"):
+    def __init__(self, model: str = "gpt-5.1"):
         import openai
         self.client = openai.OpenAI(
             api_key=os.environ.get("OPENAI_API_KEY"),
@@ -270,17 +270,19 @@ class OpenAIClient(ModelClient):
 
     @property
     def name(self) -> str:
-        return f"GPT-5-Pro ({self.model})"
+        return f"GPT-5.1 ({self.model})"
 
     def get_response(self, prompt: str) -> Tuple[Optional[str], float]:
         start = time.time()
         try:
-            # GPT-5-Pro uses the new Responses API, not chat completions
-            resp = self.client.responses.create(
+            # GPT-5.1 uses chat completions with max_completion_tokens (not max_tokens)
+            resp = self.client.chat.completions.create(
                 model=self.model,
-                input=prompt,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=CONFIG["temperature"],
+                max_completion_tokens=CONFIG["max_tokens"],
             )
-            return resp.output_text, time.time() - start
+            return resp.choices[0].message.content, time.time() - start
         except Exception as e:
             logger.error(f"OpenAI error: {e}")
             return None, time.time() - start
@@ -506,13 +508,13 @@ def main():
     # Initialize clients based on available API keys
     clients = []
 
-    # GPT-5-Pro (OpenAI direct API)
+    # GPT-5.1 (OpenAI direct API)
     if os.environ.get("OPENAI_API_KEY"):
         try:
-            clients.append(OpenAIClient("gpt-5-pro"))
-            logger.info("✓ GPT-5-Pro (OpenAI) ready")
+            clients.append(OpenAIClient("gpt-5.1"))
+            logger.info("✓ GPT-5.1 (OpenAI) ready")
         except Exception as e:
-            logger.warning(f"Could not initialize GPT-5-Pro: {e}")
+            logger.warning(f"Could not initialize GPT-5.1: {e}")
 
     # Claude Opus 4.5 (Anthropic direct API)
     if os.environ.get("ANTHROPIC_API_KEY"):
