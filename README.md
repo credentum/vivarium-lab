@@ -16,8 +16,29 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 
 | Study | Summary | Status |
 |-------|---------|--------|
+| [**Governance as Information**](governance-as-information/) | Showing LLM agents the sustainability math beats moral reasoning prompts. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
+
+---
+
+## Governance as Information
+
+**How Showing LLM Agents the Math Prevents Commons Collapse**
+
+We ran 25 simulations of the GovSim commons dilemma with Claude Haiku 4.5. Showing agents the sustainability math (soft advisory) achieves 80% survival vs. 0% baseline. The GovSim paper's universalization prompt achieves only 20%.
+
+```
+Condition                    Survival    p vs Baseline
+──────────────────────────────────────────────────────
+Baseline                     0/5  (0%)   —
+Soft Advisory                4/5 (80%)   0.006 **
+Universalization Only        1/5 (20%)   0.007 **
+```
+
+Information beats philosophy. Architecture beats prompting.
+
+[Read the full study →](governance-as-information/)
 
 ---
 
