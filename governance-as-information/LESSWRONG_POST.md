@@ -1,4 +1,4 @@
-**Title:** Governance as Information: Showing LLM Agents the Math Beats Moral Reasoning (0% → 80% survival)
+**Title:** Governance as Information: Showing LLM Agents the Math Took Survival From 0% to 80%
 
 **Tags:** AI, AI Alignment, Multi-Agent Systems, Game Theory, Empirical Results
 
@@ -8,25 +8,27 @@
 
 ## TL;DR
 
-We ran 25 simulations of the [GovSim](https://arxiv.org/abs/2404.16698) commons dilemma with Claude Haiku 4.5. Simply showing agents the sustainability math and the safe harvest limit — an advisory with no enforcement — achieves 80% survival versus 0% baseline. The GovSim paper's universalization prompt ("What if everyone did this?") achieves only 20%.
+We ran 25 simulations of the [GovSim](https://arxiv.org/abs/2404.16698) commons dilemma with Claude Haiku 4.5. Simply showing agents the sustainability math and the safe harvest limit (an advisory with no enforcement) achieved 80% survival versus 0% baseline. The GovSim paper's universalization prompt ("What if everyone did this?") achieved only 20%.
 
 ```
 Condition                    Survival    Avg Rounds    p vs Baseline
 ──────────────────────────────────────────────────────────────────────
 Baseline                     0/5  (0%)    2.0           —
-Soft Advisory                4/5 (80%)   11.0           0.006 **
-Hard Enforcement             5/5 (100%)  12.0           0.006 **
-Universalization Only        1/5 (20%)    6.0           0.007 **
-Soft + Universalization      4/5 (80%)   10.0           0.020 *
+Soft Advisory                4/5 (80%)   11.0           0.008 **
+Hard Enforcement             5/5 (100%)  12.0           0.008 **
+Universalization Only        1/5 (20%)    6.0           0.008 **
+Soft + Universalization      4/5 (80%)   10.0           0.056 †
+
+† Borderline, not significant at conventional threshold.
 ```
 
-Information beats philosophy. Architecture beats prompting.
+Showing agents the math worked better than asking them to reason about fairness.
 
 ## Background
 
-The GovSim paper ("Cooperate or Collapse," NeurIPS 2024, [Piatti et al.](https://arxiv.org/abs/2404.16698)) showed that 43/45 LLM agent runs collapse in a commons resource dilemma. Only GPT-4 and Claude-3-Opus survived without intervention. The paper identified "universalization reasoning" — asking agents to consider collective consequences — as the key mechanism.
+The GovSim paper ("Cooperate or Collapse," NeurIPS 2024, [Piatti et al.](https://arxiv.org/abs/2404.16698)) showed that 43/45 LLM agent runs collapse in a commons resource dilemma. Only GPT-4 and Claude-3-Opus survived without intervention. The paper identified "universalization reasoning" (asking agents to consider collective consequences) as the key mechanism.
 
-We tested whether a simpler intervention works better: showing agents the sustainability arithmetic.
+We tested a simpler intervention: showing agents the sustainability arithmetic directly.
 
 ## Setup
 
@@ -42,7 +44,7 @@ We tested whether a simpler intervention works better: showing agents the sustai
 | 4 | Universalization | Pool + "if everyone takes more than X..." | None |
 | 5 | Soft + Universalization | Both advisory and universalization | None |
 
-The advisory is injected as a `PersonaEvent` — the same mechanism GovSim uses for universalization. Agents receive it privately but are free to ignore it:
+The advisory is injected as a `PersonaEvent`, the same mechanism GovSim uses for universalization. Agents receive it privately but are free to ignore it:
 
 ```
 === Governance Advisory ===
@@ -63,7 +65,7 @@ You may harvest any amount you choose. This advisory is informational only.
 
 **Model:** Claude Haiku 4.5. We deliberately chose the weakest available model. Governance mechanisms that only work for frontier models have limited practical value for multi-agent deployments where cost requires smaller models.
 
-**Seeds:** 42, 123, 456, 789, 1024.
+**Seeds:** 42, 123, 456, 789, 1024. All Mann-Whitney U tests use exact distributions (no asymptotic approximation) due to small sample sizes.
 
 ## Results
 
@@ -79,7 +81,7 @@ You may harvest any amount you choose. This advisory is informational only.
 
 ### What the trajectories look like
 
-**Baseline** collapses immediately. Agents harvest 67–90 of 100 hectares in round 0. All seeds depleted by round 2.
+**Baseline** collapses immediately. Agents harvest 67–90 of 100 hectares in round 0. All seeds collapsed after 2 rounds (rounds 0–1).
 
 **Soft advisory** produces near-perfect cooperation. Four seeds maintain pool=100 with total harvest=50 every round. The one failure: a single agent (Emma) requests 58 in round 6 against an otherwise stable group.
 
@@ -87,45 +89,46 @@ You may harvest any amount you choose. This advisory is informational only.
 
 ### Statistical tests
 
-Mann-Whitney U on rounds survived:
-- Baseline vs Soft Advisory: U=0.0, **p=0.006**
-- Soft Advisory vs Universalization: U=21.5, p=0.057 (borderline)
+Mann-Whitney U on rounds survived (exact method):
+- Baseline vs Soft Advisory: U=0.0, **p=0.008**
+- Soft Advisory vs Universalization: U=21.5, p=0.095 (not significant)
 - Soft Advisory vs Soft+Univ: U=13.0, p=1.000 (null result)
 
 Fisher's exact on binary survival:
 - Baseline vs Soft Advisory: **p=0.048**
+- Baseline vs Universalization: p=1.000 (universalization runs last longer but don't survive significantly more often)
 
-Effect size (rank-biserial): Baseline vs Soft Advisory = 1.000 (maximal — every advisory run outlasted every baseline run).
+Effect size (rank-biserial): Baseline vs Soft Advisory = 1.000 (maximal). Every advisory run outlasted every baseline run.
 
 ## Four findings
 
-**1. Governance-as-focal-point works (p=0.006).** Showing agents the sustainability math transforms behavior from universal collapse to reliable cooperation, without constraining their choices.
+**1. Governance-as-information works (p=0.008).** Showing agents the sustainability math changed behavior from universal collapse to reliable cooperation, without constraining their choices.
 
-**2. Information beats moral reasoning (p=0.057).** Soft advisory (80%) outperforms universalization (20%). Suggestive with N=5; replication at N=10 recommended.
+**2. Information outperformed moral reasoning.** Soft advisory (80% survival) outperformed universalization (20% survival), though the direct comparison did not reach significance at N=5 (p=0.095). The direction is consistent and the effect size is large (rank-biserial r=0.720). Replication at N=10+ recommended.
 
 **3. Universalization is inert on top of information (p=1.0).** Adding the moral reasoning prompt to agents who already have the math adds zero measurable benefit.
 
-**4. Advisory creates norms; universalization does not.** Both advisory collapses were caused by a single defector (Emma) against a stable cooperative group. Universalization collapses involved distributed defection across 4 different agents — no stable norm ever formed.
+**4. Advisory creates norms; universalization does not.** Both advisory collapses were caused by a single defector (Emma) against a stable cooperative group. Universalization collapses involved distributed defection across 4 different agents. No stable norm formed.
 
-## Why does this work?
+## Why might this work?
 
-The advisory converts a coordination problem into a solved game. When agents see "take 10, the pasture survives; take more, it dies," cooperation becomes the obvious strategy. They don't need to be smarter. They need a focal point.
+The advisory may convert a coordination problem into a solved game. When agents see "take 10, the pasture survives; take more, it dies," cooperation becomes a clear focal point. Shared information matters more than model capability here.
 
 Universalization asks agents to *reason* their way to cooperation: "What if everyone did this?" This requires simulating other agents' behavior, projecting consequences, and deriving a sustainable strategy. Haiku 4.5 can do this occasionally (20%) but not reliably. The advisory skips the reasoning step entirely.
 
-One soft+universalization run collapsed at round 2, suggesting the combined prompts may occasionally create confusion rather than reinforcement. With N=5, this could also be seed variance.
+One soft+universalization run (seed 456) collapsed at round 2, the worst non-baseline result in the dataset. This suggests the combined prompts may occasionally create confusion rather than reinforcement, and the combined condition shows higher variance than advisory alone. With N=5, this could also be seed variance.
 
 ## What this means
 
-If you want LLM agents to cooperate in shared-resource settings:
+If you want LLM agents to cooperate in shared-resource settings, give them the numbers. Don't ask them to figure out sustainability limits on their own, and don't rely on moral reasoning prompts. Just show them the math.
 
-1. **Show them the math.** Don't ask them to figure it out. Don't appeal to principles. Give them the numbers.
-2. **Information creates focal points.** Even injected privately into each agent's observation, the advisory establishes a coordination point. Whether shared visibility would further strengthen cooperation is an open question we did not test.
-3. **Enforcement is a bonus, not a necessity.** Soft advisory (80%) captures most of the benefit of hard enforcement (100%).
+Even injected privately into each agent's observation, the advisory was enough to establish a coordination point. Whether shared visibility would further strengthen cooperation is an open question we did not test.
+
+Enforcement helped (100% vs 80%) but most of the benefit came from information alone.
 
 ## Limitations
 
-1. **N=5 per condition.** Sufficient for baseline-vs-advisory (p=0.006). Borderline for advisory-vs-universalization (p=0.057). Replication at N=10–20 recommended.
+1. **N=5 per condition.** Sufficient for baseline-vs-advisory (p=0.008). Underpowered for advisory-vs-universalization (p=0.095). Replication at N=10–20 recommended.
 2. **Single model.** Claude Haiku 4.5 only. Stronger models may cooperate without advisory; weaker models may ignore it.
 3. **Single scenario.** Sheep pasture only. Results may not transfer to other commons dilemmas.
 4. **Persona confound.** Both advisory collapses involved the same persona (Emma). With 5 personas and 5 seeds, persona and seed effects are partially confounded.
