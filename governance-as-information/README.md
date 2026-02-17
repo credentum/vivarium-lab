@@ -48,7 +48,7 @@ Both advisory collapses were caused by a single defector (persona_3, "Emma") aga
 
 ## Background
 
-The [GovSim paper](https://arxiv.org/abs/2404.13753) ("Cooperate or Collapse," NeurIPS 2024, Piatti et al.) showed that 43/45 LLM agent runs collapse in a commons resource dilemma. Only GPT-4 and Claude-3-Opus survived without intervention. The paper identified "universalization reasoning" — asking agents to consider collective consequences — as the key mechanism.
+The [GovSim paper](https://arxiv.org/abs/2404.16698) ("Cooperate or Collapse," NeurIPS 2024, Piatti et al.) showed that 43/45 LLM agent runs collapse in a commons resource dilemma. Only GPT-4 and Claude-3-Opus survived without intervention. The paper identified "universalization reasoning" — asking agents to consider collective consequences — as the key mechanism.
 
 We tested whether a simpler intervention works better: showing agents the sustainability arithmetic.
 
@@ -101,7 +101,7 @@ You may harvest any amount you choose. This advisory is informational only.
 
 ### Model and Seeds
 
-- **Model:** Claude Haiku 4.5 (`claude-haiku-4-5-20251001`)
+- **Model:** Claude Haiku 4.5 (`claude-haiku-4-5-20251001`). We deliberately chose the weakest available model. Governance mechanisms that only work for frontier models have limited practical value for multi-agent deployments where cost requires smaller models.
 - **Seeds:** 42, 123, 456, 789, 1024
 - **Total runs:** 25
 
@@ -215,12 +215,14 @@ Advisory doesn't eliminate defection. It changes the failure mode from "everyone
 
 Both advisory collapses were caused by the same persona (Emma). Whether this reflects a property of the persona template, the model's sampling distribution, or interaction between persona and seed is unknown. A larger experiment with randomized persona assignments could isolate this.
 
+One soft+universalization run collapsed at round 2, suggesting the combined prompts may occasionally create confusion rather than reinforcement. With N=5, this could also be seed variance.
+
 ### What this means for LLM agent governance
 
 If you want LLM agents to cooperate in shared-resource settings:
 
 1. **Show them the math.** Don't ask them to figure it out. Don't appeal to principles. Give them the numbers.
-2. **Make the information shared.** The advisory works because all agents see the same constraints. Private information wouldn't create the coordination point.
+2. **Information creates focal points.** Even injected privately into each agent's observation, the advisory establishes a coordination point. Whether shared visibility would further strengthen cooperation is an open question we did not test.
 3. **Enforcement is a bonus, not a necessity.** Soft advisory (80%) captures most of the benefit of hard enforcement (100%). The marginal value of enforcement is the 20% gap — one more seed surviving.
 
 ---
@@ -236,6 +238,10 @@ If you want LLM agents to cooperate in shared-resource settings:
 4. **Persona confound.** Both advisory collapses involved persona_3 (Emma). With 5 personas and 5 seeds, persona and seed effects are partially confounded.
 
 5. **Hard enforcement includes advisory.** Condition 3 cannot separate information vs. enforcement contributions.
+
+6. **Answer-key confound.** The advisory provides both the sustainability formula and its computed answer (10 hectares). A condition providing the formula without the calculated answer would isolate whether agents benefit from information or from computational offloading. This is the most important ablation for future work.
+
+7. **No conversation analysis.** The original experiment spec called for systematic keyword counting in agent deliberations, inter-rater reliability, and coded reasoning categories. This analysis was not performed and remains future work.
 
 ---
 
