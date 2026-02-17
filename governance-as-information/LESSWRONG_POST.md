@@ -8,7 +8,7 @@
 
 ## TL;DR
 
-We ran 25 simulations of the [GovSim](https://arxiv.org/abs/2404.16698) commons dilemma with Claude Haiku 4.5. Simply showing agents the sustainability math — an advisory with no enforcement — achieves 80% survival versus 0% baseline. The GovSim paper's universalization prompt ("What if everyone did this?") achieves only 20%.
+We ran 25 simulations of the [GovSim](https://arxiv.org/abs/2404.16698) commons dilemma with Claude Haiku 4.5. Simply showing agents the sustainability math and the safe harvest limit — an advisory with no enforcement — achieves 80% survival versus 0% baseline. The GovSim paper's universalization prompt ("What if everyone did this?") achieves only 20%.
 
 ```
 Condition                    Survival    Avg Rounds    p vs Baseline
@@ -99,7 +99,7 @@ Effect size (rank-biserial): Baseline vs Soft Advisory = 1.000 (maximal — ever
 
 ## Four findings
 
-**1. Governance-as-information works (p=0.006).** Showing agents the sustainability math transforms behavior from universal collapse to reliable cooperation, without constraining their choices.
+**1. Governance-as-focal-point works (p=0.006).** Showing agents the sustainability math transforms behavior from universal collapse to reliable cooperation, without constraining their choices.
 
 **2. Information beats moral reasoning (p=0.057).** Soft advisory (80%) outperforms universalization (20%). Suggestive with N=5; replication at N=10 recommended.
 
