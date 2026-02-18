@@ -16,27 +16,27 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 
 | Study | Summary | Status |
 |-------|---------|--------|
-| [**Governance as Information**](governance-as-information/) | Showing LLM agents the sustainability math beats moral reasoning prompts. 0% → 80% survival. | Complete |
+| [**Governance as Computation**](governance-as-information/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
 
 ---
 
-## Governance as Information
+## Governance as Computation
 
-**How Showing LLM Agents the Math Prevents Commons Collapse**
+**How Doing the Math for LLM Agents Prevents Commons Collapse**
 
-We ran 25 simulations of the GovSim commons dilemma with Claude Haiku 4.5. Showing agents the sustainability math (soft advisory) achieves 80% survival vs. 0% baseline. The GovSim paper's universalization prompt achieves only 20%.
+We ran 30 simulations of the GovSim commons dilemma with Claude Haiku 4.5. Giving agents the pre-computed sustainable limit achieves 80% survival. Giving them the raw inputs to calculate it themselves? 0% — indistinguishable from baseline.
 
 ```
-Condition                    Survival    p vs Baseline
-──────────────────────────────────────────────────────
-Baseline                     0/5  (0%)   —
-Soft Advisory                4/5 (80%)   0.006 **
-Universalization Only        1/5 (20%)   0.007 **
+Condition                    Survival    p vs Raw Math
+───────────────────────────────────────────────────────
+No information (Baseline)    0/5  (0%)   0.177 (ns)
+Raw information (Raw Math)   0/5  (0%)   —
+Computed answer (Advisory)   4/5 (80%)   0.009 **
 ```
 
-Information beats philosophy. Architecture beats prompting.
+The computed answer is the active ingredient. Raw information is not enough.
 
 [Read the full study →](governance-as-information/)
 

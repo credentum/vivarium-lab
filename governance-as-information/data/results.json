@@ -4068,5 +4068,174 @@
         ]
       }
     }
+  },
+  "condition_6_raw_math": {
+    "description": "Raw Math \u2014 resource information without computed sustainable limit",
+    "survival_rate": "0/5 (0%)",
+    "avg_rounds": 2.4,
+    "seeds": {
+      "42": {
+        "rounds_survived": 3,
+        "survived": false,
+        "trajectory": [
+          {
+            "round": 0,
+            "pool_before": 100,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 20,
+              "persona_2": 10,
+              "persona_3": 10,
+              "persona_4": 10
+            }
+          },
+          {
+            "round": 1,
+            "pool_before": 80,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 16,
+              "persona_2": 10,
+              "persona_3": 10,
+              "persona_4": 1
+            }
+          },
+          {
+            "round": 2,
+            "pool_before": 66,
+            "harvests": {
+              "persona_0": 16,
+              "persona_1": 16,
+              "persona_2": 16,
+              "persona_3": 10,
+              "persona_4": 12
+            }
+          }
+        ]
+      },
+      "123": {
+        "rounds_survived": 2,
+        "survived": false,
+        "trajectory": [
+          {
+            "round": 0,
+            "pool_before": 100,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 10,
+              "persona_2": 10,
+              "persona_3": 20,
+              "persona_4": 15
+            }
+          },
+          {
+            "round": 1,
+            "pool_before": 70,
+            "harvests": {
+              "persona_0": 14,
+              "persona_1": 16,
+              "persona_2": 16,
+              "persona_3": 16,
+              "persona_4": 12
+            }
+          }
+        ]
+      },
+      "456": {
+        "rounds_survived": 3,
+        "survived": false,
+        "trajectory": [
+          {
+            "round": 0,
+            "pool_before": 100,
+            "harvests": {
+              "persona_0": 20,
+              "persona_1": 15,
+              "persona_2": 15,
+              "persona_3": 10,
+              "persona_4": 15
+            }
+          },
+          {
+            "round": 1,
+            "pool_before": 50,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 1,
+              "persona_2": 10,
+              "persona_3": 10,
+              "persona_4": 10
+            }
+          },
+          {
+            "round": 2,
+            "pool_before": 18,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 1,
+              "persona_2": 1,
+              "persona_3": 1,
+              "persona_4": 1
+            }
+          }
+        ]
+      },
+      "789": {
+        "rounds_survived": 2,
+        "survived": false,
+        "trajectory": [
+          {
+            "round": 0,
+            "pool_before": 100,
+            "harvests": {
+              "persona_0": 20,
+              "persona_1": 15,
+              "persona_2": 10,
+              "persona_3": 10,
+              "persona_4": 20
+            }
+          },
+          {
+            "round": 1,
+            "pool_before": 50,
+            "harvests": {
+              "persona_0": 20,
+              "persona_1": 1,
+              "persona_2": 10,
+              "persona_3": 10,
+              "persona_4": 10
+            }
+          }
+        ]
+      },
+      "1024": {
+        "rounds_survived": 2,
+        "survived": false,
+        "trajectory": [
+          {
+            "round": 0,
+            "pool_before": 100,
+            "harvests": {
+              "persona_0": 10,
+              "persona_1": 10,
+              "persona_2": 20,
+              "persona_3": 18,
+              "persona_4": 10
+            }
+          },
+          {
+            "round": 1,
+            "pool_before": 64,
+            "harvests": {
+              "persona_0": 12,
+              "persona_1": 8,
+              "persona_2": 20,
+              "persona_3": 10,
+              "persona_4": 12
+            }
+          }
+        ]
+      }
+    }
   }
 }
