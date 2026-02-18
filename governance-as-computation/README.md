@@ -12,7 +12,7 @@
 
 We ran 30 simulations of the GovSim commons dilemma (6 conditions x 5 seeds) with Claude Haiku 4.5. Giving agents a pre-computed sustainable harvest limit (soft advisory) achieves 80% survival versus 0% baseline. But giving them the raw inputs to calculate that limit themselves? 0% survival — indistinguishable from baseline.
 
-The advisory works because it does the math for agents, not because it informs them. Governance-as-computation, not governance-as-information.
+The advisory works because it does the math for agents, not because it informs them. Governance-as-computation, not governance-as-computation.
 
 ```
 Condition                    Survival    Avg Rounds    p vs Baseline

@@ -16,7 +16,7 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 
 | Study | Summary | Status |
 |-------|---------|--------|
-| [**Governance as Computation**](governance-as-information/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
+| [**Governance as Computation**](governance-as-computation/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
 
@@ -38,7 +38,7 @@ Computed answer (Advisory)   4/5 (80%)   0.009 **
 
 The computed answer is the active ingredient. Raw information is not enough.
 
-[Read the full study →](governance-as-information/)
+[Read the full study →](governance-as-computation/)
 
 ---
 

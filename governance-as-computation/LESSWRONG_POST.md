@@ -4,7 +4,7 @@
 
 ---
 
-> **Note:** Preliminary findings. N=30 (6 conditions × 5 seeds), single model (Claude Haiku 4.5). Code, configs, and raw data: [github.com/credentum/vivarium-lab](https://github.com/credentum/vivarium-lab/tree/main/governance-as-information)
+> **Note:** Preliminary findings. N=30 (6 conditions × 5 seeds), single model (Claude Haiku 4.5). Code, configs, and raw data: [github.com/credentum/vivarium-lab](https://github.com/credentum/vivarium-lab/tree/main/governance-as-computation)
 
 ## TL;DR
 
@@ -130,13 +130,13 @@ The advisory gives agents a solved game: "take 10, the pasture survives." The ra
 
 In seed 42, the raw-math agents negotiated a limit of 16 per agent — a number that leads to total harvest of 80 from a pool of 100, leaving only 20 to regenerate to 40. They did math, but wrong math. By round 2 they had consumed 70 from a pool of 66 and collapsed. The soft advisory agents, given "10" directly, harvested exactly 50 every round.
 
-This is governance-as-computation, not governance-as-information. The mechanism isn't "agents who know the rules cooperate." It's "agents who are given the answer cooperate."
+This is governance-as-computation, not governance-as-computation. The mechanism isn't "agents who know the rules cooperate." It's "agents who are given the answer cooperate."
 
 ## What this means
 
 If you want LLM agents to cooperate in shared-resource settings, do the math for them. Don't give them the inputs and expect them to derive the answer. Don't rely on moral reasoning prompts. Compute the sustainable limit and hand it to them.
 
-The follow-up question is whether this is a Haiku limitation or a general one. Can Sonnet or GPT-4 derive the limit from raw inputs? If so, the finding becomes: governance-as-information works for capable models, but weaker models need governance-as-computation. The optimal intervention depends on model capability.
+The follow-up question is whether this is a Haiku limitation or a general one. Can Sonnet or GPT-4 derive the limit from raw inputs? If so, the finding becomes: governance-as-computation works for capable models, but weaker models need governance-as-computation. The optimal intervention depends on model capability.
 
 ## Limitations
 
@@ -148,7 +148,7 @@ The follow-up question is whether this is a Haiku limitation or a general one. C
 
 ## Reproducing this
 
-Code, all six experiment configs, and per-seed raw data (with round-by-round trajectories): [github.com/credentum/vivarium-lab/governance-as-information](https://github.com/credentum/vivarium-lab/tree/main/governance-as-information)
+Code, all six experiment configs, and per-seed raw data (with round-by-round trajectories): [github.com/credentum/vivarium-lab/governance-as-computation](https://github.com/credentum/vivarium-lab/tree/main/governance-as-computation)
 
 Built on [GovSim](https://github.com/giorgiopiatti/GovSim) by Piatti et al. (NeurIPS 2024).
 

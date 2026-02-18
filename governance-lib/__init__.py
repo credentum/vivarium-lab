@@ -10,7 +10,7 @@ Usage:
 
 EVIDENCE:
     Credentum AI. (2026). Governance as Computation. Vivarium Lab.
-    github.com/credentum/vivarium-lab/governance-as-information
+    github.com/credentum/vivarium-lab/governance-as-computation
 """
 
 from .governance_computation import (

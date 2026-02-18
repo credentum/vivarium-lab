@@ -47,6 +47,6 @@ advisory = format_governance_advisory_string(pool=100, num_agents=5)
 
 ## Evidence
 
-Based on the [Governance as Computation](../governance-as-information/) study (Credentum AI, 2026). 30 GovSim simulations across 6 conditions with Claude Haiku 4.5.
+Based on the [Governance as Computation](../governance-as-computation/) study (Credentum AI, 2026). 30 GovSim simulations across 6 conditions with Claude Haiku 4.5.
 
 > Don't tell agents what's right. Tell them what's true. The morality is in the weights. The math isn't.
