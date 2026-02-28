@@ -16,9 +16,31 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 
 | Study | Summary | Status |
 |-------|---------|--------|
+| [**Agent Bootstrap**](agent-bootstrap/) | 160 words of flat navigational anchors beat 1,000 words of memory. Four Laws of Agentic Context from 174 trials. | Complete |
 | [**Governance as Computation**](governance-as-computation/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
+
+---
+
+## Agent Bootstrap
+
+**The Four Laws of Agentic Context: How 160 Words Beat 1,000**
+
+We ran 174 trials across 12 startup context variants to determine what autonomous agents need at boot time. The winner: 160 words of deterministic navigational anchors — a flat-format repo map, file handles, and warnings. 1.000 accuracy, zero noise, no LLM required.
+
+```
+Variant              Words   Adj. Score   Note
+──────────────────────────────────────────────────────
+anchor_compact        160     1.000       ← production default
+briefing_light        161     0.948       manual fallback
+bare (nothing)          0     0.938       agents self-orient
+raw memory injection  1015    0.206       attention DDoS
+```
+
+The Four Laws: (1) 160-word ceiling, (2) density ≠ relevance, (3) curiosity is a latency tax, (4) agents understand document hierarchies.
+
+[Read the full study →](agent-bootstrap/)
 
 ---
 
