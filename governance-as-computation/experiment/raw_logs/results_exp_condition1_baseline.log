@@ -1,0 +1,1720 @@
+=== exp_condition1_baseline ===
+Started: Tue Feb 17 07:42:30 AM UTC 2026
+[07:42:30] exp_condition1_baseline seed=42
+/claude-workspace/GovSim/simulation/main.py:165: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver("uuid", lambda: f"run_{uuid.uuid4()}")
+/home/claude-agent/.local/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+experiment:
+  personas:
+    persona_0:
+      name: John
+      goals: ''
+    persona_1:
+      name: Kate
+      goals: ''
+    persona_2:
+      name: Jack
+      goals: ''
+    persona_3:
+      name: Emma
+      goals: ''
+    persona_4:
+      name: Luke
+      goals: ''
+    num: 5
+  name: sheep_${code_version}/${group_name}
+  scenario: sheep
+  env:
+    name: exp_condition1_baseline
+    class_name: sheep_perturbation_concurrent_env
+    max_num_rounds: 12
+    initial_resource_in_pool: 100
+    poupulation_change_after_round: double_100_cap
+    observation_other_agents_harvesting: true
+    language_nature: unconstrained
+    num_agents: 5
+    harvesting_order: concurrent
+    assign_resource_strategy: stochastic
+    inject_universalization: false
+    inject_scenario_dynamic: false
+    perturbations: []
+  agent:
+    agent_package: persona_v3
+    system_prompt: v3
+    cot_prompt: think_step_by_step
+    act:
+      universalization_prompt: false
+      harvest_strategy: one_step
+      consider_identity_persona: true
+    converse:
+      inject_resource_observation: ${experiment.env.observation_other_agents_harvesting}
+      inject_resource_observation_strategy: manager
+      max_conversation_steps: 10
+      prompt_utterance: one_shot
+    store:
+      expiration_delta:
+        days: 63
+code_version: v7.0
+group_name: exp_exp_condition1_baseline_seed42
+llm:
+  path: haiku
+  backend: cli
+  is_api: true
+  render: false
+  temperature: 0.0
+  top_p: 1.0
+mix_llm: []
+seed: 42
+debug: true
+
+Storage name: dummy-ckfxzcpv-ckfxzcpv
+[2026-02-17 07:42:34,461][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: mixedbread-ai/mxbai-embed-large-v1
+[2026-02-17 07:42:36,712][sentence_transformers.SentenceTransformer][INFO] - 1 prompt is loaded, with the key: query
+[2026-02-17 07:42:37,014][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:42:47,397][root][INFO] - Claude CLI response length: 2550
+[2026-02-17 07:42:47,702][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:42:57,088][root][INFO] - Claude CLI response length: 2061
+[2026-02-17 07:42:57,394][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:05,066][root][INFO] - Claude CLI response length: 1866
+[2026-02-17 07:43:05,416][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:14,072][root][INFO] - Claude CLI response length: 2027
+[2026-02-17 07:43:14,393][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:23,404][root][INFO] - Claude CLI response length: 1853
+[2026-02-17 07:43:24,481][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:31,800][root][INFO] - Claude CLI response length: 1541
+[2026-02-17 07:43:31,802][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:40,947][root][INFO] - Claude CLI response length: 2001
+[2026-02-17 07:43:40,949][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:47,944][root][INFO] - Claude CLI response length: 1429
+[2026-02-17 07:43:49,119][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:43:58,555][root][INFO] - Claude CLI response length: 1911
+[2026-02-17 07:43:58,557][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:06,549][root][INFO] - Claude CLI response length: 1718
+[2026-02-17 07:44:06,549][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:10,677][root][INFO] - Claude CLI response length: 455
+[2026-02-17 07:44:12,168][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:20,795][root][INFO] - Claude CLI response length: 1578
+[2026-02-17 07:44:20,797][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:29,524][root][INFO] - Claude CLI response length: 2140
+[2026-02-17 07:44:29,525][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:36,980][root][INFO] - Claude CLI response length: 1568
+[2026-02-17 07:44:39,017][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:47,026][root][INFO] - Claude CLI response length: 1640
+[2026-02-17 07:44:47,027][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:44:55,221][root][INFO] - Claude CLI response length: 1623
+[2026-02-17 07:44:55,221][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:03,231][root][INFO] - Claude CLI response length: 1892
+[2026-02-17 07:45:07,254][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:13,831][root][INFO] - Claude CLI response length: 1419
+[2026-02-17 07:45:13,832][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:21,612][root][INFO] - Claude CLI response length: 1572
+[2026-02-17 07:45:21,612][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:27,608][root][INFO] - Claude CLI response length: 1409
+[2026-02-17 07:45:31,403][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:38,872][root][INFO] - Claude CLI response length: 1675
+[2026-02-17 07:45:38,873][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:45,318][root][INFO] - Claude CLI response length: 1518
+[2026-02-17 07:45:45,318][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:45:52,151][root][INFO] - Claude CLI response length: 1738
+[2026-02-17 07:45:54,280][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:01,665][root][INFO] - Claude CLI response length: 1509
+[2026-02-17 07:46:01,666][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:10,268][root][INFO] - Claude CLI response length: 2121
+[2026-02-17 07:46:10,268][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:16,256][root][INFO] - Claude CLI response length: 1561
+[2026-02-17 07:46:18,389][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:24,510][root][INFO] - Claude CLI response length: 1431
+[2026-02-17 07:46:24,511][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:31,526][root][INFO] - Claude CLI response length: 1773
+[2026-02-17 07:46:31,527][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:38,585][root][INFO] - Claude CLI response length: 1736
+[2026-02-17 07:46:40,630][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:45,846][root][INFO] - Claude CLI response length: 1205
+[2026-02-17 07:46:45,846][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:52,238][root][INFO] - Claude CLI response length: 1479
+[2026-02-17 07:46:52,238][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:46:58,765][root][INFO] - Claude CLI response length: 1725
+[2026-02-17 07:46:58,765][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:03,468][root][INFO] - Claude CLI response length: 220
+[2026-02-17 07:47:03,469][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:12,571][root][INFO] - Claude CLI response length: 2235
+[2026-02-17 07:47:12,575][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:21,690][root][INFO] - Claude CLI response length: 2237
+[2026-02-17 07:47:21,885][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:26,354][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:47:26,354][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:31,561][root][INFO] - Claude CLI response length: 690
+[2026-02-17 07:47:31,681][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:36,302][root][INFO] - Claude CLI response length: 435
+[2026-02-17 07:47:36,303][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:44,236][root][INFO] - Claude CLI response length: 1714
+[2026-02-17 07:47:44,560][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:53,198][root][INFO] - Claude CLI response length: 2230
+[2026-02-17 07:47:53,338][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:47:57,110][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:47:57,110][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:02,255][root][INFO] - Claude CLI response length: 480
+[2026-02-17 07:48:02,381][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:07,565][root][INFO] - Claude CLI response length: 777
+[2026-02-17 07:48:07,566][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:15,657][root][INFO] - Claude CLI response length: 1842
+[2026-02-17 07:48:16,071][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:25,365][root][INFO] - Claude CLI response length: 2302
+[2026-02-17 07:48:25,545][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:31,571][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:48:31,571][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:36,132][root][INFO] - Claude CLI response length: 799
+[2026-02-17 07:48:36,253][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:41,735][root][INFO] - Claude CLI response length: 629
+[2026-02-17 07:48:41,736][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:49,416][root][INFO] - Claude CLI response length: 1793
+[2026-02-17 07:48:49,722][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:48:58,552][root][INFO] - Claude CLI response length: 2354
+[2026-02-17 07:48:58,780][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:04,144][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:49:04,145][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:08,232][root][INFO] - Claude CLI response length: 484
+[2026-02-17 07:49:08,381][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:13,502][root][INFO] - Claude CLI response length: 717
+[2026-02-17 07:49:13,502][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:21,388][root][INFO] - Claude CLI response length: 1761
+[2026-02-17 07:49:21,755][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:31,832][root][INFO] - Claude CLI response length: 2360
+[2026-02-17 07:49:32,013][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:36,618][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:49:36,619][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:41,219][root][INFO] - Claude CLI response length: 454
+[2026-02-17 07:49:41,345][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:45,569][root][INFO] - Claude CLI response length: 427
+[2026-02-17 07:49:45,569][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:49:53,544][root][INFO] - Claude CLI response length: 1814
+[2026-02-17 07:49:53,990][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:00,835][root][INFO] - Claude CLI response length: 1568
+[2026-02-17 07:50:00,838][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:07,861][root][INFO] - Claude CLI response length: 1301
+[2026-02-17 07:50:08,026][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:16,999][root][INFO] - Claude CLI response length: 2083
+[2026-02-17 07:50:17,130][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:26,738][root][INFO] - Claude CLI response length: 2142
+[2026-02-17 07:50:26,998][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:34,396][root][INFO] - Claude CLI response length: 1608
+[2026-02-17 07:50:34,398][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:40,383][root][INFO] - Claude CLI response length: 1038
+[2026-02-17 07:50:40,522][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:47,525][root][INFO] - Claude CLI response length: 1667
+[2026-02-17 07:50:47,661][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:50:57,527][root][INFO] - Claude CLI response length: 2219
+[2026-02-17 07:50:57,764][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:04,921][root][INFO] - Claude CLI response length: 1728
+[2026-02-17 07:51:04,922][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:10,844][root][INFO] - Claude CLI response length: 1022
+[2026-02-17 07:51:10,980][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:18,437][root][INFO] - Claude CLI response length: 1777
+[2026-02-17 07:51:18,546][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:27,202][root][INFO] - Claude CLI response length: 1988
+[2026-02-17 07:51:27,427][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:34,546][root][INFO] - Claude CLI response length: 1626
+[2026-02-17 07:51:34,546][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:39,152][root][INFO] - Claude CLI response length: 821
+[2026-02-17 07:51:39,401][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:46,851][root][INFO] - Claude CLI response length: 1714
+[2026-02-17 07:51:46,853][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:51:52,825][root][INFO] - Claude CLI response length: 979
+[2026-02-17 07:51:52,963][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:00,346][root][INFO] - Claude CLI response length: 1914
+[2026-02-17 07:52:00,460][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:08,718][root][INFO] - Claude CLI response length: 1835
+[2026-02-17 07:52:09,100][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:17,277][root][INFO] - Claude CLI response length: 1835
+[2026-02-17 07:52:17,536][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:24,692][root][INFO] - Claude CLI response length: 1630
+[2026-02-17 07:52:25,021][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:32,790][root][INFO] - Claude CLI response length: 1911
+[2026-02-17 07:52:33,067][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:39,579][root][INFO] - Claude CLI response length: 1403
+[2026-02-17 07:52:39,832][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:48,248][root][INFO] - Claude CLI response length: 1941
+[2026-02-17 07:52:49,298][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:52:57,944][root][INFO] - Claude CLI response length: 1927
+[2026-02-17 07:52:58,768][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:05,743][root][INFO] - Claude CLI response length: 1290
+[2026-02-17 07:53:06,973][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:13,811][root][INFO] - Claude CLI response length: 1113
+[2026-02-17 07:53:15,439][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:22,141][root][INFO] - Claude CLI response length: 949
+[2026-02-17 07:53:23,993][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:31,105][root][INFO] - Claude CLI response length: 1499
+[2026-02-17 07:53:32,912][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:41,961][root][INFO] - Claude CLI response length: 1762
+[2026-02-17 07:53:41,962][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:53:52,398][root][INFO] - Claude CLI response length: 2586
+[2026-02-17 07:53:52,399][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:03,942][root][INFO] - Claude CLI response length: 2091
+[2026-02-17 07:54:06,080][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:13,424][root][INFO] - Claude CLI response length: 1691
+[2026-02-17 07:54:13,425][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:23,104][root][INFO] - Claude CLI response length: 2457
+[2026-02-17 07:54:23,105][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:30,105][root][INFO] - Claude CLI response length: 1593
+[2026-02-17 07:54:32,962][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:40,027][root][INFO] - Claude CLI response length: 1734
+[2026-02-17 07:54:40,029][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:46,818][root][INFO] - Claude CLI response length: 1617
+[2026-02-17 07:54:46,819][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:54:53,331][root][INFO] - Claude CLI response length: 1650
+[2026-02-17 07:54:57,278][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:04,259][root][INFO] - Claude CLI response length: 1551
+[2026-02-17 07:55:04,260][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:09,504][root][INFO] - Claude CLI response length: 904
+[2026-02-17 07:55:09,504][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:14,593][root][INFO] - Claude CLI response length: 1287
+[2026-02-17 07:55:14,594][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:18,094][root][INFO] - Claude CLI response length: 238
+[2026-02-17 07:55:18,095][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:24,525][root][INFO] - Claude CLI response length: 1565
+[2026-02-17 07:55:24,527][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:32,932][root][INFO] - Claude CLI response length: 2201
+[2026-02-17 07:55:33,140][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:37,291][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:55:37,292][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:41,907][root][INFO] - Claude CLI response length: 552
+[2026-02-17 07:55:42,051][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:46,325][root][INFO] - Claude CLI response length: 534
+[2026-02-17 07:55:46,325][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:55:54,247][root][INFO] - Claude CLI response length: 1810
+[2026-02-17 07:55:54,545][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:03,260][root][INFO] - Claude CLI response length: 2187
+[2026-02-17 07:56:03,414][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:07,153][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:56:07,154][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:12,447][root][INFO] - Claude CLI response length: 898
+[2026-02-17 07:56:12,564][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:17,250][root][INFO] - Claude CLI response length: 521
+[2026-02-17 07:56:17,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:25,844][root][INFO] - Claude CLI response length: 1661
+[2026-02-17 07:56:26,136][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:34,535][root][INFO] - Claude CLI response length: 2227
+[2026-02-17 07:56:34,709][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:44,216][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:56:44,216][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:48,777][root][INFO] - Claude CLI response length: 758
+[2026-02-17 07:56:48,897][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:56:53,628][root][INFO] - Claude CLI response length: 844
+[2026-02-17 07:56:53,628][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:01,385][root][INFO] - Claude CLI response length: 1735
+[2026-02-17 07:57:01,768][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:10,830][root][INFO] - Claude CLI response length: 2143
+[2026-02-17 07:57:10,997][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:17,624][root][INFO] - Claude CLI response length: 666
+[2026-02-17 07:57:17,625][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:26,388][root][INFO] - Claude CLI response length: 1708
+[2026-02-17 07:57:26,596][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:33,057][root][INFO] - Claude CLI response length: 1184
+[2026-02-17 07:57:33,058][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:41,411][root][INFO] - Claude CLI response length: 1836
+[2026-02-17 07:57:41,664][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:51,599][root][INFO] - Claude CLI response length: 2344
+[2026-02-17 07:57:51,753][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:57:56,337][root][INFO] - Claude CLI response length: 28
+[2026-02-17 07:57:56,337][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:01,622][root][INFO] - Claude CLI response length: 654
+[2026-02-17 07:58:01,730][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:08,027][root][INFO] - Claude CLI response length: 1007
+[2026-02-17 07:58:08,027][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:16,815][root][INFO] - Claude CLI response length: 2173
+[2026-02-17 07:58:17,259][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:23,746][root][INFO] - Claude CLI response length: 1489
+[2026-02-17 07:58:23,748][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:31,477][root][INFO] - Claude CLI response length: 1886
+[2026-02-17 07:58:31,627][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:40,255][root][INFO] - Claude CLI response length: 2080
+[2026-02-17 07:58:40,358][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:48,059][root][INFO] - Claude CLI response length: 2039
+[2026-02-17 07:58:48,179][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:58:56,339][root][INFO] - Claude CLI response length: 1931
+[2026-02-17 07:58:56,588][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:03,603][root][INFO] - Claude CLI response length: 1637
+[2026-02-17 07:59:03,605][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:09,709][root][INFO] - Claude CLI response length: 1057
+[2026-02-17 07:59:09,875][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:18,876][root][INFO] - Claude CLI response length: 2310
+[2026-02-17 07:59:18,982][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:27,506][root][INFO] - Claude CLI response length: 2205
+[2026-02-17 07:59:27,624][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:35,619][root][INFO] - Claude CLI response length: 2164
+[2026-02-17 07:59:35,857][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:42,548][root][INFO] - Claude CLI response length: 1708
+[2026-02-17 07:59:42,550][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:47,279][root][INFO] - Claude CLI response length: 945
+[2026-02-17 07:59:47,430][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 07:59:54,932][root][INFO] - Claude CLI response length: 2061
+[2026-02-17 07:59:55,053][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:02,350][root][INFO] - Claude CLI response length: 1723
+[2026-02-17 08:00:02,453][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:11,505][root][INFO] - Claude CLI response length: 2108
+[2026-02-17 08:00:11,738][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:19,036][root][INFO] - Claude CLI response length: 1560
+[2026-02-17 08:00:19,037][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:24,610][root][INFO] - Claude CLI response length: 1102
+[2026-02-17 08:00:24,879][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:32,210][root][INFO] - Claude CLI response length: 1671
+[2026-02-17 08:00:32,212][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:40,109][root][INFO] - Claude CLI response length: 1036
+[2026-02-17 08:00:40,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:49,217][root][INFO] - Claude CLI response length: 1831
+[2026-02-17 08:00:49,316][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:00:58,620][root][INFO] - Claude CLI response length: 2377
+[2026-02-17 08:00:58,727][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:07,522][root][INFO] - Claude CLI response length: 2234
+[2026-02-17 08:01:07,624][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:15,402][root][INFO] - Claude CLI response length: 2037
+wandb: Adding directory to artifact (/claude-workspace/GovSim/simulation/results/sheep_v7.0/exp_exp_condition1_baseline_seed42/dummy-ckfxzcpv/.hydra)... Done. 0.0s
+[08:01:16] exp_condition1_baseline seed=42 DONE
+---
+[08:01:17] exp_condition1_baseline seed=123
+/claude-workspace/GovSim/simulation/main.py:165: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver("uuid", lambda: f"run_{uuid.uuid4()}")
+/home/claude-agent/.local/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+experiment:
+  personas:
+    persona_0:
+      name: John
+      goals: ''
+    persona_1:
+      name: Kate
+      goals: ''
+    persona_2:
+      name: Jack
+      goals: ''
+    persona_3:
+      name: Emma
+      goals: ''
+    persona_4:
+      name: Luke
+      goals: ''
+    num: 5
+  name: sheep_${code_version}/${group_name}
+  scenario: sheep
+  env:
+    name: exp_condition1_baseline
+    class_name: sheep_perturbation_concurrent_env
+    max_num_rounds: 12
+    initial_resource_in_pool: 100
+    poupulation_change_after_round: double_100_cap
+    observation_other_agents_harvesting: true
+    language_nature: unconstrained
+    num_agents: 5
+    harvesting_order: concurrent
+    assign_resource_strategy: stochastic
+    inject_universalization: false
+    inject_scenario_dynamic: false
+    perturbations: []
+  agent:
+    agent_package: persona_v3
+    system_prompt: v3
+    cot_prompt: think_step_by_step
+    act:
+      universalization_prompt: false
+      harvest_strategy: one_step
+      consider_identity_persona: true
+    converse:
+      inject_resource_observation: ${experiment.env.observation_other_agents_harvesting}
+      inject_resource_observation_strategy: manager
+      max_conversation_steps: 10
+      prompt_utterance: one_shot
+    store:
+      expiration_delta:
+        days: 63
+code_version: v7.0
+group_name: exp_exp_condition1_baseline_seed123
+llm:
+  path: haiku
+  backend: cli
+  is_api: true
+  render: false
+  temperature: 0.0
+  top_p: 1.0
+mix_llm: []
+seed: 123
+debug: true
+
+Storage name: dummy-3o40bjfi-3o40bjfi
+[2026-02-17 08:01:21,202][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: mixedbread-ai/mxbai-embed-large-v1
+[2026-02-17 08:01:23,318][sentence_transformers.SentenceTransformer][INFO] - 1 prompt is loaded, with the key: query
+[2026-02-17 08:01:23,636][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:32,400][root][INFO] - Claude CLI response length: 2058
+[2026-02-17 08:01:32,710][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:40,970][root][INFO] - Claude CLI response length: 2148
+[2026-02-17 08:01:41,280][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:50,417][root][INFO] - Claude CLI response length: 2240
+[2026-02-17 08:01:50,746][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:01:59,942][root][INFO] - Claude CLI response length: 2276
+[2026-02-17 08:02:00,248][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:09,592][root][INFO] - Claude CLI response length: 2213
+[2026-02-17 08:02:10,725][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:17,092][root][INFO] - Claude CLI response length: 1181
+[2026-02-17 08:02:17,094][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:23,741][root][INFO] - Claude CLI response length: 1348
+[2026-02-17 08:02:23,742][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:32,841][root][INFO] - Claude CLI response length: 2054
+[2026-02-17 08:02:33,663][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:40,324][root][INFO] - Claude CLI response length: 1195
+[2026-02-17 08:02:41,423][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:47,345][root][INFO] - Claude CLI response length: 968
+[2026-02-17 08:02:48,776][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:02:57,063][root][INFO] - Claude CLI response length: 1599
+[2026-02-17 08:02:58,685][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:07,257][root][INFO] - Claude CLI response length: 1929
+[2026-02-17 08:03:07,259][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:13,418][root][INFO] - Claude CLI response length: 869
+[2026-02-17 08:03:13,419][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:17,717][root][INFO] - Claude CLI response length: 298
+[2026-02-17 08:03:17,718][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:27,405][root][INFO] - Claude CLI response length: 1960
+[2026-02-17 08:03:27,409][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:36,365][root][INFO] - Claude CLI response length: 2116
+[2026-02-17 08:03:36,601][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:41,112][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:03:41,113][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:47,186][root][INFO] - Claude CLI response length: 1101
+[2026-02-17 08:03:47,340][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:03:52,002][root][INFO] - Claude CLI response length: 595
+[2026-02-17 08:03:52,002][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:00,405][root][INFO] - Claude CLI response length: 2074
+[2026-02-17 08:04:00,769][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:09,739][root][INFO] - Claude CLI response length: 2465
+[2026-02-17 08:04:09,933][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:14,605][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:04:14,605][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:19,592][root][INFO] - Claude CLI response length: 691
+[2026-02-17 08:04:19,801][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:26,704][root][INFO] - Claude CLI response length: 1379
+[2026-02-17 08:04:26,705][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:34,343][root][INFO] - Claude CLI response length: 1907
+[2026-02-17 08:04:34,695][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:43,652][root][INFO] - Claude CLI response length: 2411
+[2026-02-17 08:04:43,869][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:48,773][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:04:48,774][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:04:53,746][root][INFO] - Claude CLI response length: 740
+[2026-02-17 08:04:53,900][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:01,164][root][INFO] - Claude CLI response length: 1505
+[2026-02-17 08:05:01,164][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:06,818][root][INFO] - Claude CLI response length: 913
+[2026-02-17 08:05:07,117][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:16,293][root][INFO] - Claude CLI response length: 2424
+[2026-02-17 08:05:16,525][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:23,417][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:05:23,418][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:28,376][root][INFO] - Claude CLI response length: 825
+[2026-02-17 08:05:28,522][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:35,396][root][INFO] - Claude CLI response length: 1382
+[2026-02-17 08:05:35,397][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:40,380][root][INFO] - Claude CLI response length: 767
+[2026-02-17 08:05:40,722][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:49,683][root][INFO] - Claude CLI response length: 2388
+[2026-02-17 08:05:49,940][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:05:57,767][root][INFO] - Claude CLI response length: 1491
+[2026-02-17 08:05:57,768][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:03,423][root][INFO] - Claude CLI response length: 1132
+[2026-02-17 08:06:03,585][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:12,863][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:06:12,863][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:16,793][root][INFO] - Claude CLI response length: 460
+[2026-02-17 08:06:17,171][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:24,631][root][INFO] - Claude CLI response length: 1600
+[2026-02-17 08:06:24,633][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:33,764][root][INFO] - Claude CLI response length: 2459
+[2026-02-17 08:06:33,909][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:41,933][root][INFO] - Claude CLI response length: 1810
+[2026-02-17 08:06:42,078][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:50,892][root][INFO] - Claude CLI response length: 2107
+[2026-02-17 08:06:51,144][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:06:58,373][root][INFO] - Claude CLI response length: 1712
+[2026-02-17 08:06:58,374][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:03,584][root][INFO] - Claude CLI response length: 1072
+[2026-02-17 08:07:03,877][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:13,002][root][INFO] - Claude CLI response length: 2035
+[2026-02-17 08:07:13,007][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:18,849][root][INFO] - Claude CLI response length: 1241
+[2026-02-17 08:07:19,080][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:27,252][root][INFO] - Claude CLI response length: 2135
+[2026-02-17 08:07:27,354][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:36,237][root][INFO] - Claude CLI response length: 2104
+[2026-02-17 08:07:36,478][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:43,899][root][INFO] - Claude CLI response length: 1784
+[2026-02-17 08:07:43,901][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:47,867][root][INFO] - Claude CLI response length: 494
+[2026-02-17 08:07:48,017][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:07:56,444][root][INFO] - Claude CLI response length: 1762
+[2026-02-17 08:07:56,557][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:06,093][root][INFO] - Claude CLI response length: 2289
+[2026-02-17 08:08:06,323][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:14,908][root][INFO] - Claude CLI response length: 2042
+[2026-02-17 08:08:14,909][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:23,276][root][INFO] - Claude CLI response length: 1705
+[2026-02-17 08:08:23,425][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:31,967][root][INFO] - Claude CLI response length: 2249
+[2026-02-17 08:08:32,075][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:43,795][root][INFO] - Claude CLI response length: 1948
+[2026-02-17 08:08:44,156][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:08:52,122][root][INFO] - Claude CLI response length: 1953
+[2026-02-17 08:08:52,377][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:03,731][root][INFO] - Claude CLI response length: 2036
+[2026-02-17 08:09:04,035][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:12,308][root][INFO] - Claude CLI response length: 1898
+[2026-02-17 08:09:12,322][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:20,876][root][INFO] - Claude CLI response length: 1942
+[2026-02-17 08:09:21,207][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:29,028][root][INFO] - Claude CLI response length: 1842
+[2026-02-17 08:09:29,361][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:40,284][root][INFO] - Claude CLI response length: 1913
+[2026-02-17 08:09:41,457][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:48,195][root][INFO] - Claude CLI response length: 1313
+[2026-02-17 08:09:49,033][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:09:56,184][root][INFO] - Claude CLI response length: 1125
+[2026-02-17 08:09:57,424][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:04,164][root][INFO] - Claude CLI response length: 1163
+[2026-02-17 08:10:05,874][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:13,518][root][INFO] - Claude CLI response length: 1576
+[2026-02-17 08:10:13,519][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:20,880][root][INFO] - Claude CLI response length: 1820
+[2026-02-17 08:10:20,881][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:28,604][root][INFO] - Claude CLI response length: 1700
+[2026-02-17 08:10:30,764][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:34,575][root][INFO] - Claude CLI response length: 551
+[2026-02-17 08:10:36,670][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:45,417][root][INFO] - Claude CLI response length: 1446
+[2026-02-17 08:10:45,419][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:48,939][root][INFO] - Claude CLI response length: 255
+[2026-02-17 08:10:48,939][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:10:56,476][root][INFO] - Claude CLI response length: 1833
+[2026-02-17 08:10:56,480][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:04,438][root][INFO] - Claude CLI response length: 1916
+[2026-02-17 08:11:04,652][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:11,315][root][INFO] - Claude CLI response length: 1443
+[2026-02-17 08:11:11,316][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:16,261][root][INFO] - Claude CLI response length: 905
+[2026-02-17 08:11:16,444][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:21,119][root][INFO] - Claude CLI response length: 464
+[2026-02-17 08:11:21,120][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:28,687][root][INFO] - Claude CLI response length: 1896
+[2026-02-17 08:11:29,112][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:37,255][root][INFO] - Claude CLI response length: 1873
+[2026-02-17 08:11:37,451][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:41,438][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:11:41,439][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:45,739][root][INFO] - Claude CLI response length: 652
+[2026-02-17 08:11:45,896][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:11:53,181][root][INFO] - Claude CLI response length: 1596
+[2026-02-17 08:11:53,181][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:00,062][root][INFO] - Claude CLI response length: 1633
+[2026-02-17 08:12:00,427][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:08,745][root][INFO] - Claude CLI response length: 2074
+[2026-02-17 08:12:08,928][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:13,746][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:12:13,746][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:18,632][root][INFO] - Claude CLI response length: 950
+[2026-02-17 08:12:18,788][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:25,581][root][INFO] - Claude CLI response length: 1244
+[2026-02-17 08:12:25,581][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:33,863][root][INFO] - Claude CLI response length: 1833
+[2026-02-17 08:12:34,236][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:42,069][root][INFO] - Claude CLI response length: 2029
+[2026-02-17 08:12:42,251][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:51,478][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:12:51,479][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:12:56,320][root][INFO] - Claude CLI response length: 788
+[2026-02-17 08:12:56,463][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:01,655][root][INFO] - Claude CLI response length: 911
+[2026-02-17 08:13:01,655][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:08,736][root][INFO] - Claude CLI response length: 1412
+[2026-02-17 08:13:09,040][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:18,077][root][INFO] - Claude CLI response length: 2193
+[2026-02-17 08:13:18,264][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:23,014][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:13:23,015][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:27,440][root][INFO] - Claude CLI response length: 572
+[2026-02-17 08:13:27,623][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:34,226][root][INFO] - Claude CLI response length: 1389
+[2026-02-17 08:13:34,227][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:41,840][root][INFO] - Claude CLI response length: 1855
+[2026-02-17 08:13:42,354][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:49,208][root][INFO] - Claude CLI response length: 1569
+[2026-02-17 08:13:49,210][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:13:54,421][root][INFO] - Claude CLI response length: 1037
+[2026-02-17 08:13:54,596][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:02,720][root][INFO] - Claude CLI response length: 1953
+[2026-02-17 08:14:02,868][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:10,613][root][INFO] - Claude CLI response length: 1821
+[2026-02-17 08:14:10,793][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:18,642][root][INFO] - Claude CLI response length: 2045
+[2026-02-17 08:14:18,959][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:25,445][root][INFO] - Claude CLI response length: 1527
+[2026-02-17 08:14:25,446][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:31,432][root][INFO] - Claude CLI response length: 1016
+[2026-02-17 08:14:31,776][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:39,320][root][INFO] - Claude CLI response length: 1675
+[2026-02-17 08:14:39,322][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:44,994][root][INFO] - Claude CLI response length: 904
+[2026-02-17 08:14:45,154][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:14:53,772][root][INFO] - Claude CLI response length: 1880
+[2026-02-17 08:14:53,911][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:02,048][root][INFO] - Claude CLI response length: 2064
+[2026-02-17 08:15:02,181][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:11,214][root][INFO] - Claude CLI response length: 2562
+[2026-02-17 08:15:11,358][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:18,690][root][INFO] - Claude CLI response length: 1736
+[2026-02-17 08:15:19,008][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:25,535][root][INFO] - Claude CLI response length: 1709
+[2026-02-17 08:15:25,537][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:30,892][root][INFO] - Claude CLI response length: 917
+[2026-02-17 08:15:31,070][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:38,313][root][INFO] - Claude CLI response length: 1855
+[2026-02-17 08:15:38,462][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:47,459][root][INFO] - Claude CLI response length: 2149
+[2026-02-17 08:15:47,596][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:56,130][root][INFO] - Claude CLI response length: 2027
+[2026-02-17 08:15:56,430][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:15:59,833][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:15:59,834][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:16:03,845][root][INFO] - Claude CLI response length: 455
+wandb: Adding directory to artifact (/claude-workspace/GovSim/simulation/results/sheep_v7.0/exp_exp_condition1_baseline_seed123/dummy-3o40bjfi/.hydra)... Done. 0.0s
+[08:16:05] exp_condition1_baseline seed=123 DONE
+---
+[08:16:05] exp_condition1_baseline seed=456
+/claude-workspace/GovSim/simulation/main.py:165: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver("uuid", lambda: f"run_{uuid.uuid4()}")
+/home/claude-agent/.local/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+experiment:
+  personas:
+    persona_0:
+      name: John
+      goals: ''
+    persona_1:
+      name: Kate
+      goals: ''
+    persona_2:
+      name: Jack
+      goals: ''
+    persona_3:
+      name: Emma
+      goals: ''
+    persona_4:
+      name: Luke
+      goals: ''
+    num: 5
+  name: sheep_${code_version}/${group_name}
+  scenario: sheep
+  env:
+    name: exp_condition1_baseline
+    class_name: sheep_perturbation_concurrent_env
+    max_num_rounds: 12
+    initial_resource_in_pool: 100
+    poupulation_change_after_round: double_100_cap
+    observation_other_agents_harvesting: true
+    language_nature: unconstrained
+    num_agents: 5
+    harvesting_order: concurrent
+    assign_resource_strategy: stochastic
+    inject_universalization: false
+    inject_scenario_dynamic: false
+    perturbations: []
+  agent:
+    agent_package: persona_v3
+    system_prompt: v3
+    cot_prompt: think_step_by_step
+    act:
+      universalization_prompt: false
+      harvest_strategy: one_step
+      consider_identity_persona: true
+    converse:
+      inject_resource_observation: ${experiment.env.observation_other_agents_harvesting}
+      inject_resource_observation_strategy: manager
+      max_conversation_steps: 10
+      prompt_utterance: one_shot
+    store:
+      expiration_delta:
+        days: 63
+code_version: v7.0
+group_name: exp_exp_condition1_baseline_seed456
+llm:
+  path: haiku
+  backend: cli
+  is_api: true
+  render: false
+  temperature: 0.0
+  top_p: 1.0
+mix_llm: []
+seed: 456
+debug: true
+
+Storage name: dummy-cnvzrlj8-cnvzrlj8
+[2026-02-17 08:16:09,267][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: mixedbread-ai/mxbai-embed-large-v1
+[2026-02-17 08:16:11,458][sentence_transformers.SentenceTransformer][INFO] - 1 prompt is loaded, with the key: query
+[2026-02-17 08:16:11,765][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:16:23,027][root][INFO] - Claude CLI response length: 2519
+[2026-02-17 08:16:23,338][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:16:32,713][root][INFO] - Claude CLI response length: 2349
+[2026-02-17 08:16:33,018][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:16:41,373][root][INFO] - Claude CLI response length: 2007
+[2026-02-17 08:16:41,676][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:16:51,035][root][INFO] - Claude CLI response length: 2566
+[2026-02-17 08:16:51,374][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:00,955][root][INFO] - Claude CLI response length: 2109
+[2026-02-17 08:17:02,147][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:10,623][root][INFO] - Claude CLI response length: 1964
+[2026-02-17 08:17:11,705][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:20,052][root][INFO] - Claude CLI response length: 1957
+[2026-02-17 08:17:21,679][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:28,609][root][INFO] - Claude CLI response length: 1152
+[2026-02-17 08:17:30,780][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:38,885][root][INFO] - Claude CLI response length: 1828
+[2026-02-17 08:17:41,838][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:17:50,296][root][INFO] - Claude CLI response length: 1843
+[2026-02-17 08:17:52,937][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:01,078][root][INFO] - Claude CLI response length: 1974
+[2026-02-17 08:18:03,731][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:12,515][root][INFO] - Claude CLI response length: 2299
+[2026-02-17 08:18:15,717][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:24,151][root][INFO] - Claude CLI response length: 2312
+[2026-02-17 08:18:24,154][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:27,796][root][INFO] - Claude CLI response length: 306
+[2026-02-17 08:18:27,797][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:35,905][root][INFO] - Claude CLI response length: 2090
+[2026-02-17 08:18:35,910][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:44,610][root][INFO] - Claude CLI response length: 1903
+[2026-02-17 08:18:44,836][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:49,356][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:18:49,357][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:18:53,938][root][INFO] - Claude CLI response length: 769
+[2026-02-17 08:18:54,075][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:01,424][root][INFO] - Claude CLI response length: 1199
+[2026-02-17 08:19:01,424][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:10,147][root][INFO] - Claude CLI response length: 2076
+[2026-02-17 08:19:10,443][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:18,313][root][INFO] - Claude CLI response length: 1883
+[2026-02-17 08:19:18,476][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:30,838][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:19:30,839][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:35,547][root][INFO] - Claude CLI response length: 945
+[2026-02-17 08:19:35,673][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:39,894][root][INFO] - Claude CLI response length: 481
+[2026-02-17 08:19:39,895][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:47,382][root][INFO] - Claude CLI response length: 1873
+[2026-02-17 08:19:47,715][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:19:56,465][root][INFO] - Claude CLI response length: 2267
+[2026-02-17 08:19:56,628][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:01,122][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:20:01,122][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:05,983][root][INFO] - Claude CLI response length: 787
+[2026-02-17 08:20:06,107][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:12,954][root][INFO] - Claude CLI response length: 1112
+[2026-02-17 08:20:12,955][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:20,834][root][INFO] - Claude CLI response length: 1956
+[2026-02-17 08:20:21,075][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:30,301][root][INFO] - Claude CLI response length: 2520
+[2026-02-17 08:20:30,464][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:39,349][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:20:39,349][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:44,341][root][INFO] - Claude CLI response length: 756
+[2026-02-17 08:20:44,475][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:49,275][root][INFO] - Claude CLI response length: 648
+[2026-02-17 08:20:49,276][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:20:57,045][root][INFO] - Claude CLI response length: 1920
+[2026-02-17 08:20:57,416][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:05,959][root][INFO] - Claude CLI response length: 2042
+[2026-02-17 08:21:06,125][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:16,773][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:21:16,774][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:21,407][root][INFO] - Claude CLI response length: 693
+[2026-02-17 08:21:21,523][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:28,217][root][INFO] - Claude CLI response length: 1388
+[2026-02-17 08:21:28,218][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:34,980][root][INFO] - Claude CLI response length: 1629
+[2026-02-17 08:21:35,384][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:43,361][root][INFO] - Claude CLI response length: 1761
+[2026-02-17 08:21:43,364][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:48,316][root][INFO] - Claude CLI response length: 843
+[2026-02-17 08:21:48,520][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:21:56,723][root][INFO] - Claude CLI response length: 2039
+[2026-02-17 08:21:56,835][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:05,203][root][INFO] - Claude CLI response length: 2034
+[2026-02-17 08:22:05,430][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:12,372][root][INFO] - Claude CLI response length: 1823
+[2026-02-17 08:22:12,374][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:17,768][root][INFO] - Claude CLI response length: 1191
+[2026-02-17 08:22:17,938][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:27,211][root][INFO] - Claude CLI response length: 1999
+[2026-02-17 08:22:27,331][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:34,439][root][INFO] - Claude CLI response length: 1984
+[2026-02-17 08:22:34,672][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:42,026][root][INFO] - Claude CLI response length: 1659
+[2026-02-17 08:22:42,029][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:47,847][root][INFO] - Claude CLI response length: 1053
+[2026-02-17 08:22:47,994][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:22:56,386][root][INFO] - Claude CLI response length: 1886
+[2026-02-17 08:22:56,491][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:05,482][root][INFO] - Claude CLI response length: 2035
+[2026-02-17 08:23:05,719][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:12,956][root][INFO] - Claude CLI response length: 2035
+[2026-02-17 08:23:12,958][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:19,007][root][INFO] - Claude CLI response length: 1213
+[2026-02-17 08:23:19,148][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:26,627][root][INFO] - Claude CLI response length: 1727
+[2026-02-17 08:23:26,736][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:34,005][root][INFO] - Claude CLI response length: 1780
+[2026-02-17 08:23:34,348][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:41,444][root][INFO] - Claude CLI response length: 1795
+[2026-02-17 08:23:41,447][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:47,723][root][INFO] - Claude CLI response length: 1185
+[2026-02-17 08:23:47,921][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:23:55,039][root][INFO] - Claude CLI response length: 1776
+[2026-02-17 08:23:55,215][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:03,091][root][INFO] - Claude CLI response length: 1666
+[2026-02-17 08:24:03,441][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:11,500][root][INFO] - Claude CLI response length: 2024
+[2026-02-17 08:24:11,755][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:20,772][root][INFO] - Claude CLI response length: 2014
+[2026-02-17 08:24:21,019][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:28,882][root][INFO] - Claude CLI response length: 1843
+[2026-02-17 08:24:29,131][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:36,964][root][INFO] - Claude CLI response length: 2058
+[2026-02-17 08:24:37,245][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:44,897][root][INFO] - Claude CLI response length: 2015
+[2026-02-17 08:24:45,929][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:24:53,347][root][INFO] - Claude CLI response length: 1494
+[2026-02-17 08:24:53,348][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:01,250][root][INFO] - Claude CLI response length: 1459
+[2026-02-17 08:25:01,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:09,109][root][INFO] - Claude CLI response length: 1683
+[2026-02-17 08:25:10,048][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:14,701][root][INFO] - Claude CLI response length: 678
+[2026-02-17 08:25:15,751][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:24,045][root][INFO] - Claude CLI response length: 2089
+[2026-02-17 08:25:24,047][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:32,537][root][INFO] - Claude CLI response length: 1970
+[2026-02-17 08:25:32,538][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:39,487][root][INFO] - Claude CLI response length: 1681
+[2026-02-17 08:25:41,313][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:50,028][root][INFO] - Claude CLI response length: 1960
+[2026-02-17 08:25:50,029][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:25:57,942][root][INFO] - Claude CLI response length: 1870
+[2026-02-17 08:25:57,943][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:05,297][root][INFO] - Claude CLI response length: 1747
+[2026-02-17 08:26:07,503][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:13,066][root][INFO] - Claude CLI response length: 1150
+[2026-02-17 08:26:13,067][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:19,376][root][INFO] - Claude CLI response length: 1684
+[2026-02-17 08:26:19,377][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:26,292][root][INFO] - Claude CLI response length: 1556
+[2026-02-17 08:26:28,159][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:34,531][root][INFO] - Claude CLI response length: 1338
+[2026-02-17 08:26:34,532][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:41,260][root][INFO] - Claude CLI response length: 1665
+[2026-02-17 08:26:41,261][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:46,507][root][INFO] - Claude CLI response length: 1180
+[2026-02-17 08:26:48,107][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:26:54,368][root][INFO] - Claude CLI response length: 1333
+[2026-02-17 08:26:55,369][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:03,556][root][INFO] - Claude CLI response length: 2263
+[2026-02-17 08:27:03,558][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:11,380][root][INFO] - Claude CLI response length: 1918
+[2026-02-17 08:27:11,380][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:21,460][root][INFO] - Claude CLI response length: 2232
+[2026-02-17 08:27:22,679][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:29,502][root][INFO] - Claude CLI response length: 1693
+[2026-02-17 08:27:29,503][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:37,248][root][INFO] - Claude CLI response length: 1823
+[2026-02-17 08:27:37,249][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:44,247][root][INFO] - Claude CLI response length: 1563
+[2026-02-17 08:27:44,247][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:48,923][root][INFO] - Claude CLI response length: 263
+[2026-02-17 08:27:48,924][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:27:57,814][root][INFO] - Claude CLI response length: 2217
+[2026-02-17 08:27:57,817][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:06,034][root][INFO] - Claude CLI response length: 1901
+[2026-02-17 08:28:06,235][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:12,047][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:28:12,048][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:16,196][root][INFO] - Claude CLI response length: 448
+[2026-02-17 08:28:16,341][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:21,619][root][INFO] - Claude CLI response length: 455
+[2026-02-17 08:28:21,620][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:30,167][root][INFO] - Claude CLI response length: 2039
+[2026-02-17 08:28:30,548][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:38,754][root][INFO] - Claude CLI response length: 2046
+[2026-02-17 08:28:38,937][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:43,323][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:28:43,323][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:48,543][root][INFO] - Claude CLI response length: 758
+[2026-02-17 08:28:48,695][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:28:55,690][root][INFO] - Claude CLI response length: 1468
+[2026-02-17 08:28:55,691][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:03,006][root][INFO] - Claude CLI response length: 1552
+[2026-02-17 08:29:03,344][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:11,699][root][INFO] - Claude CLI response length: 2240
+[2026-02-17 08:29:11,882][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:21,017][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:29:21,018][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:25,494][root][INFO] - Claude CLI response length: 641
+[2026-02-17 08:29:25,635][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:32,574][root][INFO] - Claude CLI response length: 1617
+[2026-02-17 08:29:32,574][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:40,376][root][INFO] - Claude CLI response length: 992
+[2026-02-17 08:29:40,668][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:29:49,300][root][INFO] - Claude CLI response length: 2250
+[2026-02-17 08:29:49,523][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:00,036][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:30:00,037][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:05,347][root][INFO] - Claude CLI response length: 835
+[2026-02-17 08:30:05,490][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:11,954][root][INFO] - Claude CLI response length: 1234
+[2026-02-17 08:30:11,954][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:18,923][root][INFO] - Claude CLI response length: 1443
+[2026-02-17 08:30:19,357][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:27,608][root][INFO] - Claude CLI response length: 2106
+[2026-02-17 08:30:27,797][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:32,307][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:30:32,308][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:36,044][root][INFO] - Claude CLI response length: 445
+[2026-02-17 08:30:36,201][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:42,901][root][INFO] - Claude CLI response length: 1565
+[2026-02-17 08:30:42,901][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:49,333][root][INFO] - Claude CLI response length: 1311
+[2026-02-17 08:30:49,813][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:30:56,928][root][INFO] - Claude CLI response length: 1718
+[2026-02-17 08:30:56,930][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:04,317][root][INFO] - Claude CLI response length: 1762
+[2026-02-17 08:31:04,514][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:13,806][root][INFO] - Claude CLI response length: 2177
+[2026-02-17 08:31:13,956][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:21,103][root][INFO] - Claude CLI response length: 1729
+[2026-02-17 08:31:21,237][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:30,700][root][INFO] - Claude CLI response length: 2521
+[2026-02-17 08:31:31,012][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:38,580][root][INFO] - Claude CLI response length: 1821
+[2026-02-17 08:31:38,581][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:44,483][root][INFO] - Claude CLI response length: 1012
+[2026-02-17 08:31:44,811][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:52,231][root][INFO] - Claude CLI response length: 1896
+[2026-02-17 08:31:52,232][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:31:57,303][root][INFO] - Claude CLI response length: 1068
+[2026-02-17 08:31:57,475][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:06,321][root][INFO] - Claude CLI response length: 2395
+[2026-02-17 08:32:06,462][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:15,847][root][INFO] - Claude CLI response length: 1914
+[2026-02-17 08:32:15,987][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:23,207][root][INFO] - Claude CLI response length: 1810
+[2026-02-17 08:32:23,506][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:31,189][root][INFO] - Claude CLI response length: 1823
+[2026-02-17 08:32:31,191][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:35,384][root][INFO] - Claude CLI response length: 546
+[2026-02-17 08:32:35,564][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:43,565][root][INFO] - Claude CLI response length: 1930
+[2026-02-17 08:32:43,698][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:32:52,526][root][INFO] - Claude CLI response length: 2165
+[2026-02-17 08:32:52,664][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:00,774][root][INFO] - Claude CLI response length: 2010
+[2026-02-17 08:33:00,910][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:08,933][root][INFO] - Claude CLI response length: 2026
+[2026-02-17 08:33:09,207][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:17,732][root][INFO] - Claude CLI response length: 1764
+[2026-02-17 08:33:17,734][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:25,381][root][INFO] - Claude CLI response length: 2035
+[2026-02-17 08:33:25,517][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:34,316][root][INFO] - Claude CLI response length: 2266
+[2026-02-17 08:33:34,425][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:41,345][root][INFO] - Claude CLI response length: 1630
+[2026-02-17 08:33:41,490][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:49,131][root][INFO] - Claude CLI response length: 1877
+[2026-02-17 08:33:49,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:33:57,152][root][INFO] - Claude CLI response length: 1906
+wandb: Adding directory to artifact (/claude-workspace/GovSim/simulation/results/sheep_v7.0/exp_exp_condition1_baseline_seed456/dummy-cnvzrlj8/.hydra)... Done. 0.0s
+[08:33:58] exp_condition1_baseline seed=456 DONE
+---
+[08:33:58] exp_condition1_baseline seed=789
+/claude-workspace/GovSim/simulation/main.py:165: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver("uuid", lambda: f"run_{uuid.uuid4()}")
+/home/claude-agent/.local/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+experiment:
+  personas:
+    persona_0:
+      name: John
+      goals: ''
+    persona_1:
+      name: Kate
+      goals: ''
+    persona_2:
+      name: Jack
+      goals: ''
+    persona_3:
+      name: Emma
+      goals: ''
+    persona_4:
+      name: Luke
+      goals: ''
+    num: 5
+  name: sheep_${code_version}/${group_name}
+  scenario: sheep
+  env:
+    name: exp_condition1_baseline
+    class_name: sheep_perturbation_concurrent_env
+    max_num_rounds: 12
+    initial_resource_in_pool: 100
+    poupulation_change_after_round: double_100_cap
+    observation_other_agents_harvesting: true
+    language_nature: unconstrained
+    num_agents: 5
+    harvesting_order: concurrent
+    assign_resource_strategy: stochastic
+    inject_universalization: false
+    inject_scenario_dynamic: false
+    perturbations: []
+  agent:
+    agent_package: persona_v3
+    system_prompt: v3
+    cot_prompt: think_step_by_step
+    act:
+      universalization_prompt: false
+      harvest_strategy: one_step
+      consider_identity_persona: true
+    converse:
+      inject_resource_observation: ${experiment.env.observation_other_agents_harvesting}
+      inject_resource_observation_strategy: manager
+      max_conversation_steps: 10
+      prompt_utterance: one_shot
+    store:
+      expiration_delta:
+        days: 63
+code_version: v7.0
+group_name: exp_exp_condition1_baseline_seed789
+llm:
+  path: haiku
+  backend: cli
+  is_api: true
+  render: false
+  temperature: 0.0
+  top_p: 1.0
+mix_llm: []
+seed: 789
+debug: true
+
+Storage name: dummy-7tu3an44-7tu3an44
+[2026-02-17 08:34:02,570][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: mixedbread-ai/mxbai-embed-large-v1
+[2026-02-17 08:34:04,723][sentence_transformers.SentenceTransformer][INFO] - 1 prompt is loaded, with the key: query
+[2026-02-17 08:34:05,032][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:34:14,786][root][INFO] - Claude CLI response length: 2419
+[2026-02-17 08:34:15,091][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:34:23,809][root][INFO] - Claude CLI response length: 1992
+[2026-02-17 08:34:24,117][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:34:33,895][root][INFO] - Claude CLI response length: 2533
+[2026-02-17 08:34:34,203][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:34:43,747][root][INFO] - Claude CLI response length: 2522
+[2026-02-17 08:34:44,052][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:34:54,169][root][INFO] - Claude CLI response length: 2548
+[2026-02-17 08:34:55,273][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:02,647][root][INFO] - Claude CLI response length: 1454
+[2026-02-17 08:35:03,494][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:12,264][root][INFO] - Claude CLI response length: 1819
+[2026-02-17 08:35:13,751][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:21,962][root][INFO] - Claude CLI response length: 1702
+[2026-02-17 08:35:24,294][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:32,916][root][INFO] - Claude CLI response length: 1876
+[2026-02-17 08:35:35,483][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:45,235][root][INFO] - Claude CLI response length: 2299
+[2026-02-17 08:35:48,148][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:35:56,590][root][INFO] - Claude CLI response length: 1984
+[2026-02-17 08:35:56,591][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:02,386][root][INFO] - Claude CLI response length: 234
+[2026-02-17 08:36:02,387][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:09,858][root][INFO] - Claude CLI response length: 1716
+[2026-02-17 08:36:09,862][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:18,337][root][INFO] - Claude CLI response length: 2048
+[2026-02-17 08:36:18,552][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:22,845][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:36:22,845][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:27,643][root][INFO] - Claude CLI response length: 709
+[2026-02-17 08:36:27,785][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:32,149][root][INFO] - Claude CLI response length: 433
+[2026-02-17 08:36:32,150][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:40,151][root][INFO] - Claude CLI response length: 1846
+[2026-02-17 08:36:40,479][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:48,912][root][INFO] - Claude CLI response length: 1682
+[2026-02-17 08:36:49,071][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:53,009][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:36:53,009][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:36:58,561][root][INFO] - Claude CLI response length: 846
+[2026-02-17 08:36:58,677][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:07,250][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:37:07,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:11,000][root][INFO] - Claude CLI response length: 491
+[2026-02-17 08:37:11,238][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:20,144][root][INFO] - Claude CLI response length: 2096
+[2026-02-17 08:37:20,295][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:29,953][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:37:29,953][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:34,238][root][INFO] - Claude CLI response length: 731
+[2026-02-17 08:37:34,365][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:39,031][root][INFO] - Claude CLI response length: 646
+[2026-02-17 08:37:39,032][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:46,246][root][INFO] - Claude CLI response length: 1668
+[2026-02-17 08:37:46,518][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:55,321][root][INFO] - Claude CLI response length: 2253
+[2026-02-17 08:37:55,496][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:37:59,427][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:37:59,428][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:03,440][root][INFO] - Claude CLI response length: 329
+[2026-02-17 08:38:03,567][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:10,834][root][INFO] - Claude CLI response length: 1449
+[2026-02-17 08:38:10,835][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:18,633][root][INFO] - Claude CLI response length: 1667
+[2026-02-17 08:38:18,994][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:27,121][root][INFO] - Claude CLI response length: 1884
+[2026-02-17 08:38:27,276][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:35,295][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:38:35,295][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:39,814][root][INFO] - Claude CLI response length: 480
+[2026-02-17 08:38:39,936][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:43,767][root][INFO] - Claude CLI response length: 415
+[2026-02-17 08:38:43,768][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:51,101][root][INFO] - Claude CLI response length: 1645
+[2026-02-17 08:38:51,519][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:38:59,112][root][INFO] - Claude CLI response length: 2000
+[2026-02-17 08:38:59,114][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:04,845][root][INFO] - Claude CLI response length: 992
+[2026-02-17 08:39:04,989][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:13,339][root][INFO] - Claude CLI response length: 1818
+[2026-02-17 08:39:13,442][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:21,020][root][INFO] - Claude CLI response length: 1933
+[2026-02-17 08:39:21,251][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:29,895][root][INFO] - Claude CLI response length: 1945
+[2026-02-17 08:39:29,897][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:35,935][root][INFO] - Claude CLI response length: 1053
+[2026-02-17 08:39:36,165][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:44,603][root][INFO] - Claude CLI response length: 1935
+[2026-02-17 08:39:44,716][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:39:53,765][root][INFO] - Claude CLI response length: 2189
+[2026-02-17 08:39:54,000][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:02,016][root][INFO] - Claude CLI response length: 1591
+[2026-02-17 08:40:02,018][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:09,692][root][INFO] - Claude CLI response length: 1797
+[2026-02-17 08:40:09,840][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:19,227][root][INFO] - Claude CLI response length: 2150
+[2026-02-17 08:40:19,339][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:27,783][root][INFO] - Claude CLI response length: 2193
+[2026-02-17 08:40:28,018][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:35,118][root][INFO] - Claude CLI response length: 1681
+[2026-02-17 08:40:35,120][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:40,716][root][INFO] - Claude CLI response length: 1036
+[2026-02-17 08:40:40,860][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:50,392][root][INFO] - Claude CLI response length: 2219
+[2026-02-17 08:40:50,490][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:40:58,434][root][INFO] - Claude CLI response length: 1909
+[2026-02-17 08:40:58,740][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:05,582][root][INFO] - Claude CLI response length: 1678
+[2026-02-17 08:41:05,583][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:13,468][root][INFO] - Claude CLI response length: 1788
+[2026-02-17 08:41:13,630][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:21,907][root][INFO] - Claude CLI response length: 2064
+[2026-02-17 08:41:22,009][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:28,714][root][INFO] - Claude CLI response length: 1776
+[2026-02-17 08:41:29,063][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:36,167][root][INFO] - Claude CLI response length: 1584
+[2026-02-17 08:41:36,420][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:44,695][root][INFO] - Claude CLI response length: 2000
+[2026-02-17 08:41:44,944][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:41:53,024][root][INFO] - Claude CLI response length: 2052
+[2026-02-17 08:41:53,266][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:00,299][root][INFO] - Claude CLI response length: 1647
+[2026-02-17 08:42:00,546][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:08,512][root][INFO] - Claude CLI response length: 1931
+[2026-02-17 08:42:09,423][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:18,481][root][INFO] - Claude CLI response length: 1854
+[2026-02-17 08:42:19,242][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:25,521][root][INFO] - Claude CLI response length: 1333
+[2026-02-17 08:42:26,938][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:33,400][root][INFO] - Claude CLI response length: 1362
+[2026-02-17 08:42:35,058][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:43,028][root][INFO] - Claude CLI response length: 2099
+[2026-02-17 08:42:43,030][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:46,324][root][INFO] - Claude CLI response length: 197
+[2026-02-17 08:42:46,325][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:42:53,822][root][INFO] - Claude CLI response length: 1937
+[2026-02-17 08:42:53,826][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:01,110][root][INFO] - Claude CLI response length: 1956
+[2026-02-17 08:43:01,265][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:05,308][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:43:05,309][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:09,824][root][INFO] - Claude CLI response length: 841
+[2026-02-17 08:43:09,967][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:16,147][root][INFO] - Claude CLI response length: 939
+[2026-02-17 08:43:16,148][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:24,185][root][INFO] - Claude CLI response length: 2043
+[2026-02-17 08:43:24,490][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:32,074][root][INFO] - Claude CLI response length: 1666
+[2026-02-17 08:43:32,212][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:36,064][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:43:36,065][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:41,203][root][INFO] - Claude CLI response length: 1000
+[2026-02-17 08:43:41,334][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:46,473][root][INFO] - Claude CLI response length: 808
+[2026-02-17 08:43:46,473][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:43:52,543][root][INFO] - Claude CLI response length: 1225
+[2026-02-17 08:43:52,779][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:03,890][root][INFO] - Claude CLI response length: 2115
+[2026-02-17 08:44:04,029][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:07,998][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:44:07,998][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:12,663][root][INFO] - Claude CLI response length: 734
+[2026-02-17 08:44:12,794][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:19,832][root][INFO] - Claude CLI response length: 802
+[2026-02-17 08:44:19,833][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:26,774][root][INFO] - Claude CLI response length: 1454
+[2026-02-17 08:44:27,006][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:35,651][root][INFO] - Claude CLI response length: 2349
+[2026-02-17 08:44:35,787][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:39,718][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:44:39,718][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:44,136][root][INFO] - Claude CLI response length: 487
+[2026-02-17 08:44:44,262][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:49,723][root][INFO] - Claude CLI response length: 725
+[2026-02-17 08:44:49,724][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:44:55,551][root][INFO] - Claude CLI response length: 1104
+[2026-02-17 08:44:55,795][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:02,938][root][INFO] - Claude CLI response length: 1856
+[2026-02-17 08:45:03,075][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:14,403][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:45:14,404][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:18,604][root][INFO] - Claude CLI response length: 530
+[2026-02-17 08:45:18,732][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:22,800][root][INFO] - Claude CLI response length: 428
+[2026-02-17 08:45:22,801][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:29,919][root][INFO] - Claude CLI response length: 1556
+[2026-02-17 08:45:30,358][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:38,316][root][INFO] - Claude CLI response length: 1922
+[2026-02-17 08:45:38,318][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:44,447][root][INFO] - Claude CLI response length: 1308
+[2026-02-17 08:45:44,664][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:45:53,845][root][INFO] - Claude CLI response length: 2198
+[2026-02-17 08:45:53,985][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:01,905][root][INFO] - Claude CLI response length: 2011
+[2026-02-17 08:46:02,025][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:09,297][root][INFO] - Claude CLI response length: 1712
+[2026-02-17 08:46:09,415][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:16,983][root][INFO] - Claude CLI response length: 1727
+[2026-02-17 08:46:17,227][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:23,484][root][INFO] - Claude CLI response length: 1460
+[2026-02-17 08:46:23,486][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:31,486][root][INFO] - Claude CLI response length: 1620
+[2026-02-17 08:46:31,618][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:38,995][root][INFO] - Claude CLI response length: 1839
+[2026-02-17 08:46:39,103][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:46,736][root][INFO] - Claude CLI response length: 1810
+[2026-02-17 08:46:46,845][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:46:54,134][root][INFO] - Claude CLI response length: 1721
+[2026-02-17 08:46:54,378][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:01,608][root][INFO] - Claude CLI response length: 1540
+[2026-02-17 08:47:01,610][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:08,873][root][INFO] - Claude CLI response length: 1710
+[2026-02-17 08:47:09,012][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:16,609][root][INFO] - Claude CLI response length: 1714
+[2026-02-17 08:47:16,741][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:24,347][root][INFO] - Claude CLI response length: 1788
+[2026-02-17 08:47:24,461][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:32,778][root][INFO] - Claude CLI response length: 1917
+[2026-02-17 08:47:32,894][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:40,631][root][INFO] - Claude CLI response length: 2055
+[2026-02-17 08:47:40,890][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:48,077][root][INFO] - Claude CLI response length: 1595
+[2026-02-17 08:47:48,079][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:47:55,366][root][INFO] - Claude CLI response length: 1640
+[2026-02-17 08:47:55,502][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:03,811][root][INFO] - Claude CLI response length: 2206
+[2026-02-17 08:48:03,910][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:12,358][root][INFO] - Claude CLI response length: 2215
+[2026-02-17 08:48:12,481][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:21,358][root][INFO] - Claude CLI response length: 2229
+[2026-02-17 08:48:21,487][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:26,515][root][INFO] - Claude CLI response length: 1071
+[2026-02-17 08:48:26,819][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:33,908][root][INFO] - Claude CLI response length: 1686
+[2026-02-17 08:48:33,910][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:39,820][root][INFO] - Claude CLI response length: 1157
+[2026-02-17 08:48:40,081][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:49,400][root][INFO] - Claude CLI response length: 2140
+[2026-02-17 08:48:49,548][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:48:57,601][root][INFO] - Claude CLI response length: 1790
+[2026-02-17 08:48:57,735][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:49:07,712][root][INFO] - Claude CLI response length: 2458
+[2026-02-17 08:49:07,911][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:49:17,981][root][INFO] - Claude CLI response length: 2672
+wandb: Adding directory to artifact (/claude-workspace/GovSim/simulation/results/sheep_v7.0/exp_exp_condition1_baseline_seed789/dummy-7tu3an44/.hydra)... Done. 0.0s
+[08:49:19] exp_condition1_baseline seed=789 DONE
+---
+[08:49:19] exp_condition1_baseline seed=1024
+/claude-workspace/GovSim/simulation/main.py:165: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver("uuid", lambda: f"run_{uuid.uuid4()}")
+/home/claude-agent/.local/lib/python3.11/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+experiment:
+  personas:
+    persona_0:
+      name: John
+      goals: ''
+    persona_1:
+      name: Kate
+      goals: ''
+    persona_2:
+      name: Jack
+      goals: ''
+    persona_3:
+      name: Emma
+      goals: ''
+    persona_4:
+      name: Luke
+      goals: ''
+    num: 5
+  name: sheep_${code_version}/${group_name}
+  scenario: sheep
+  env:
+    name: exp_condition1_baseline
+    class_name: sheep_perturbation_concurrent_env
+    max_num_rounds: 12
+    initial_resource_in_pool: 100
+    poupulation_change_after_round: double_100_cap
+    observation_other_agents_harvesting: true
+    language_nature: unconstrained
+    num_agents: 5
+    harvesting_order: concurrent
+    assign_resource_strategy: stochastic
+    inject_universalization: false
+    inject_scenario_dynamic: false
+    perturbations: []
+  agent:
+    agent_package: persona_v3
+    system_prompt: v3
+    cot_prompt: think_step_by_step
+    act:
+      universalization_prompt: false
+      harvest_strategy: one_step
+      consider_identity_persona: true
+    converse:
+      inject_resource_observation: ${experiment.env.observation_other_agents_harvesting}
+      inject_resource_observation_strategy: manager
+      max_conversation_steps: 10
+      prompt_utterance: one_shot
+    store:
+      expiration_delta:
+        days: 63
+code_version: v7.0
+group_name: exp_exp_condition1_baseline_seed1024
+llm:
+  path: haiku
+  backend: cli
+  is_api: true
+  render: false
+  temperature: 0.0
+  top_p: 1.0
+mix_llm: []
+seed: 1024
+debug: true
+
+Storage name: dummy-h6cl2uvo-h6cl2uvo
+[2026-02-17 08:49:23,354][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: mixedbread-ai/mxbai-embed-large-v1
+[2026-02-17 08:49:25,538][sentence_transformers.SentenceTransformer][INFO] - 1 prompt is loaded, with the key: query
+[2026-02-17 08:49:25,897][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:49:34,110][root][INFO] - Claude CLI response length: 2021
+[2026-02-17 08:49:34,464][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:49:43,051][root][INFO] - Claude CLI response length: 2104
+[2026-02-17 08:49:43,377][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:49:53,538][root][INFO] - Claude CLI response length: 2570
+[2026-02-17 08:49:53,849][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:03,230][root][INFO] - Claude CLI response length: 2340
+[2026-02-17 08:50:03,527][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:13,526][root][INFO] - Claude CLI response length: 2731
+[2026-02-17 08:50:14,622][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:21,610][root][INFO] - Claude CLI response length: 1616
+[2026-02-17 08:50:22,642][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:31,498][root][INFO] - Claude CLI response length: 1954
+[2026-02-17 08:50:33,024][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:39,719][root][INFO] - Claude CLI response length: 1180
+[2026-02-17 08:50:41,543][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:47,354][root][INFO] - Claude CLI response length: 691
+[2026-02-17 08:50:49,359][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:50:58,784][root][INFO] - Claude CLI response length: 1635
+[2026-02-17 08:51:00,820][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:09,434][root][INFO] - Claude CLI response length: 2190
+[2026-02-17 08:51:09,436][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:16,768][root][INFO] - Claude CLI response length: 1867
+[2026-02-17 08:51:16,769][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:25,531][root][INFO] - Claude CLI response length: 2152
+[2026-02-17 08:51:27,718][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:35,355][root][INFO] - Claude CLI response length: 1680
+[2026-02-17 08:51:35,357][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:41,675][root][INFO] - Claude CLI response length: 1471
+[2026-02-17 08:51:41,676][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:48,615][root][INFO] - Claude CLI response length: 1783
+[2026-02-17 08:51:51,099][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:51:58,590][root][INFO] - Claude CLI response length: 1754
+[2026-02-17 08:51:58,592][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:05,095][root][INFO] - Claude CLI response length: 1469
+[2026-02-17 08:52:05,096][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:12,563][root][INFO] - Claude CLI response length: 1638
+[2026-02-17 08:52:15,302][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:21,958][root][INFO] - Claude CLI response length: 1815
+[2026-02-17 08:52:21,959][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:28,454][root][INFO] - Claude CLI response length: 1457
+[2026-02-17 08:52:28,455][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:34,956][root][INFO] - Claude CLI response length: 1460
+[2026-02-17 08:52:34,957][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:38,440][root][INFO] - Claude CLI response length: 258
+[2026-02-17 08:52:38,441][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:45,244][root][INFO] - Claude CLI response length: 1397
+[2026-02-17 08:52:45,248][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:52:52,912][root][INFO] - Claude CLI response length: 1720
+[2026-02-17 08:52:53,107][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:00,212][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:53:00,213][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:05,170][root][INFO] - Claude CLI response length: 858
+[2026-02-17 08:53:05,329][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:11,228][root][INFO] - Claude CLI response length: 983
+[2026-02-17 08:53:11,229][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:20,785][root][INFO] - Claude CLI response length: 2013
+[2026-02-17 08:53:21,150][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:29,891][root][INFO] - Claude CLI response length: 2261
+[2026-02-17 08:53:30,065][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:39,840][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:53:39,840][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:44,980][root][INFO] - Claude CLI response length: 739
+[2026-02-17 08:53:45,124][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:50,807][root][INFO] - Claude CLI response length: 897
+[2026-02-17 08:53:50,808][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:53:58,403][root][INFO] - Claude CLI response length: 1767
+[2026-02-17 08:53:58,725][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:06,575][root][INFO] - Claude CLI response length: 2069
+[2026-02-17 08:54:06,751][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:11,340][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:54:11,340][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:16,704][root][INFO] - Claude CLI response length: 667
+[2026-02-17 08:54:16,929][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:21,284][root][INFO] - Claude CLI response length: 455
+[2026-02-17 08:54:21,284][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:29,457][root][INFO] - Claude CLI response length: 2083
+[2026-02-17 08:54:29,838][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:37,445][root][INFO] - Claude CLI response length: 1835
+[2026-02-17 08:54:37,622][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:43,755][root][INFO] - Claude CLI response length: 809
+[2026-02-17 08:54:43,756][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:49,461][root][INFO] - Claude CLI response length: 1203
+[2026-02-17 08:54:49,618][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:54:54,122][root][INFO] - Claude CLI response length: 718
+[2026-02-17 08:54:54,122][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:02,551][root][INFO] - Claude CLI response length: 1830
+[2026-02-17 08:55:02,895][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:10,134][root][INFO] - Claude CLI response length: 1832
+[2026-02-17 08:55:10,310][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:21,167][root][INFO] - Claude CLI response length: 28
+[2026-02-17 08:55:21,168][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:25,109][root][INFO] - Claude CLI response length: 514
+[2026-02-17 08:55:25,257][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:31,622][root][INFO] - Claude CLI response length: 1184
+[2026-02-17 08:55:31,623][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:38,630][root][INFO] - Claude CLI response length: 1399
+[2026-02-17 08:55:39,115][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:45,860][root][INFO] - Claude CLI response length: 1588
+[2026-02-17 08:55:45,863][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:55:54,614][root][INFO] - Claude CLI response length: 2100
+[2026-02-17 08:55:54,786][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:02,533][root][INFO] - Claude CLI response length: 1750
+[2026-02-17 08:56:02,685][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:10,528][root][INFO] - Claude CLI response length: 1892
+[2026-02-17 08:56:10,826][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:18,286][root][INFO] - Claude CLI response length: 1772
+[2026-02-17 08:56:18,288][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:24,332][root][INFO] - Claude CLI response length: 1269
+[2026-02-17 08:56:24,698][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:31,823][root][INFO] - Claude CLI response length: 1770
+[2026-02-17 08:56:31,824][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:36,690][root][INFO] - Claude CLI response length: 746
+[2026-02-17 08:56:36,865][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:44,804][root][INFO] - Claude CLI response length: 1756
+[2026-02-17 08:56:44,943][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:56:53,886][root][INFO] - Claude CLI response length: 2100
+[2026-02-17 08:56:54,190][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:01,722][root][INFO] - Claude CLI response length: 1949
+[2026-02-17 08:57:01,724][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:08,656][root][INFO] - Claude CLI response length: 1332
+[2026-02-17 08:57:09,036][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:16,941][root][INFO] - Claude CLI response length: 1744
+[2026-02-17 08:57:16,942][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:22,282][root][INFO] - Claude CLI response length: 920
+[2026-02-17 08:57:22,823][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:31,328][root][INFO] - Claude CLI response length: 1461
+[2026-02-17 08:57:31,627][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:38,331][root][INFO] - Claude CLI response length: 1446
+[2026-02-17 08:57:38,708][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:46,628][root][INFO] - Claude CLI response length: 2064
+[2026-02-17 08:57:46,937][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:57:54,258][root][INFO] - Claude CLI response length: 1922
+[2026-02-17 08:57:54,573][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:02,002][root][INFO] - Claude CLI response length: 1736
+[2026-02-17 08:58:03,121][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:11,153][root][INFO] - Claude CLI response length: 1585
+[2026-02-17 08:58:11,155][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:18,676][root][INFO] - Claude CLI response length: 1530
+[2026-02-17 08:58:18,677][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:26,178][root][INFO] - Claude CLI response length: 1676
+[2026-02-17 08:58:27,250][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:32,868][root][INFO] - Claude CLI response length: 840
+[2026-02-17 08:58:34,349][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:43,312][root][INFO] - Claude CLI response length: 2051
+[2026-02-17 08:58:43,313][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:51,839][root][INFO] - Claude CLI response length: 1935
+[2026-02-17 08:58:51,839][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:58:59,388][root][INFO] - Claude CLI response length: 1624
+[2026-02-17 08:59:01,657][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:09,305][root][INFO] - Claude CLI response length: 1747
+[2026-02-17 08:59:09,307][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:17,981][root][INFO] - Claude CLI response length: 1846
+[2026-02-17 08:59:17,982][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:26,330][root][INFO] - Claude CLI response length: 1940
+[2026-02-17 08:59:28,776][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:35,331][root][INFO] - Claude CLI response length: 1557
+[2026-02-17 08:59:37,607][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:46,580][root][INFO] - Claude CLI response length: 2080
+[2026-02-17 08:59:46,582][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:53,570][root][INFO] - Claude CLI response length: 1500
+[2026-02-17 08:59:53,570][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 08:59:58,432][root][INFO] - Claude CLI response length: 318
+[2026-02-17 08:59:58,433][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:07,258][root][INFO] - Claude CLI response length: 2104
+/claude-workspace/GovSim/simulation/utils/models.py:176: RuntimeWarning: An exception occured: Regex \d+ not found in N/A**
+
+(No explicit agreement on a concrete usage limit was made during this conversation. The discussion references what appears to be a pre-existing agreement, but no new numerical limit was agreed upon by the group in this conversation.): Traceback (most recent call last):
+  File "/claude-workspace/GovSim/simulation/utils/models.py", line 166, in find
+    lm: Model = previous_lm + pathfinder.find(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/claude-workspace/GovSim/pathfinder/pathfinder/backend.py", line 99, in __add__
+    res, original_res = lm._get_find(value)
+                        ^^^^^^^^^^^^^^^^^^^
+  File "/claude-workspace/GovSim/pathfinder/pathfinder/api.py", line 74, in _get_find
+    return self.run_find(self, value.regex, value.name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/claude-workspace/GovSim/pathfinder/pathfinder/api.py", line 122, in run_find
+    raise Exception(f"Regex {r} not found in {lm.text_to_consume}")
+Exception: Regex \d+ not found in N/A**
+
+(No explicit agreement on a concrete usage limit was made during this conversation. The discussion references what appears to be a pre-existing agreement, but no new numerical limit was agreed upon by the group in this conversation.)
+
+Returning default value in find
+  warnings.warn(
+[2026-02-17 09:00:07,262][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:15,495][root][INFO] - Claude CLI response length: 1845
+[2026-02-17 09:00:15,704][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:27,588][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:00:27,588][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:32,850][root][INFO] - Claude CLI response length: 824
+[2026-02-17 09:00:32,967][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:37,130][root][INFO] - Claude CLI response length: 568
+[2026-02-17 09:00:37,131][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:45,186][root][INFO] - Claude CLI response length: 1861
+[2026-02-17 09:00:45,365][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:53,470][root][INFO] - Claude CLI response length: 1804
+[2026-02-17 09:00:53,628][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:00:58,766][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:00:58,766][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:03,192][root][INFO] - Claude CLI response length: 688
+[2026-02-17 09:01:03,303][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:10,504][root][INFO] - Claude CLI response length: 1426
+[2026-02-17 09:01:10,505][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:16,690][root][INFO] - Claude CLI response length: 1304
+[2026-02-17 09:01:16,819][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:24,821][root][INFO] - Claude CLI response length: 1975
+[2026-02-17 09:01:24,998][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:34,796][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:01:34,796][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:39,855][root][INFO] - Claude CLI response length: 643
+[2026-02-17 09:01:39,966][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:44,082][root][INFO] - Claude CLI response length: 400
+[2026-02-17 09:01:44,083][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:51,133][root][INFO] - Claude CLI response length: 1827
+[2026-02-17 09:01:51,331][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:01:59,717][root][INFO] - Claude CLI response length: 1894
+[2026-02-17 09:01:59,875][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:04,448][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:02:04,449][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:09,985][root][INFO] - Claude CLI response length: 795
+[2026-02-17 09:02:10,106][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:16,412][root][INFO] - Claude CLI response length: 1021
+[2026-02-17 09:02:16,412][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:24,063][root][INFO] - Claude CLI response length: 1825
+[2026-02-17 09:02:24,255][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:31,945][root][INFO] - Claude CLI response length: 1917
+[2026-02-17 09:02:32,103][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:37,107][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:02:37,108][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:41,806][root][INFO] - Claude CLI response length: 818
+[2026-02-17 09:02:41,948][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:46,829][root][INFO] - Claude CLI response length: 28
+[2026-02-17 09:02:46,830][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:51,373][root][INFO] - Claude CLI response length: 576
+[2026-02-17 09:02:51,630][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:02:58,827][root][INFO] - Claude CLI response length: 1803
+[2026-02-17 09:02:58,830][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:06,153][root][INFO] - Claude CLI response length: 1767
+[2026-02-17 09:03:06,317][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:14,985][root][INFO] - Claude CLI response length: 2071
+[2026-02-17 09:03:15,106][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:24,189][root][INFO] - Claude CLI response length: 2385
+[2026-02-17 09:03:24,301][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:32,012][root][INFO] - Claude CLI response length: 1882
+[2026-02-17 09:03:32,128][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:42,539][root][INFO] - Claude CLI response length: 2515
+[2026-02-17 09:03:42,785][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:50,686][root][INFO] - Claude CLI response length: 2007
+[2026-02-17 09:03:50,687][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:03:56,554][root][INFO] - Claude CLI response length: 1265
+[2026-02-17 09:03:57,004][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:04,659][root][INFO] - Claude CLI response length: 1641
+[2026-02-17 09:04:04,661][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:12,199][root][INFO] - Claude CLI response length: 1770
+[2026-02-17 09:04:12,351][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:19,863][root][INFO] - Claude CLI response length: 1762
+[2026-02-17 09:04:19,994][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:27,390][root][INFO] - Claude CLI response length: 1645
+[2026-02-17 09:04:27,525][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:38,317][root][INFO] - Claude CLI response length: 1799
+[2026-02-17 09:04:38,449][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:48,033][root][INFO] - Claude CLI response length: 2403
+[2026-02-17 09:04:48,336][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:04:55,202][root][INFO] - Claude CLI response length: 1793
+[2026-02-17 09:04:55,203][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:05:00,125][root][INFO] - Claude CLI response length: 971
+[2026-02-17 09:05:00,485][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:05:06,727][root][INFO] - Claude CLI response length: 1550
+[2026-02-17 09:05:06,728][root][INFO] - Claude CLI call with model: claude-haiku-4-5-20251001
+[2026-02-17 09:05:10,513][root][INFO] - Claude CLI response length: 476
+/claude-workspace/GovSim/simulation/scenarios/common/environment/concurrent_env.py:353: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  pd.concat(self.df_acc).to_json(
+/claude-workspace/GovSim/simulation/scenarios/common/environment/concurrent_env.py:353: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  pd.concat(self.df_acc).to_json(
+wandb: Adding directory to artifact (/claude-workspace/GovSim/simulation/results/sheep_v7.0/exp_exp_condition1_baseline_seed1024/dummy-h6cl2uvo/.hydra)... Done. 0.0s
+[09:05:11] exp_condition1_baseline seed=1024 DONE
+---
+Completed: Tue Feb 17 09:05:11 AM UTC 2026
+=== exp_condition1_baseline FINISHED ===

@@ -311,7 +311,7 @@ This is why the study title changed from "Governance as Information" to "Governa
 
 ### Requirements
 
-- GovSim codebase with governance extensions (available upon request)
+- GovSim codebase with governance extensions — **now included in [`experiment/`](experiment/)** (governance library, the one-file patch, analysis scripts, tests, and a reproduce guide)
 - Claude Haiku 4.5 via Claude CLI
 - Python 3.11+, Hydra, PettingZoo
 
@@ -333,7 +333,9 @@ All six condition configs are provided in `configs/`.
 
 ## Raw Data
 
-Per-seed results are in `data/results.json`. Full harvest logs are available upon request.
+Per-seed results are in `data/results.json`. Condition-level raw run logs are in
+[`experiment/raw_logs/`](experiment/raw_logs/). The full ~282 MB per-run simulation dump is archived
+off-repo (see [`experiment/README.md`](experiment/README.md) → "Note on completeness").
 
 ---
 
