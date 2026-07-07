@@ -37,7 +37,11 @@ Previously the study README said the codebase was "available upon request." It's
 ## Note on completeness
 
 The **full raw simulation output** (`simulation/results/`, ~282 MB of per-run dumps) is **not**
-committed here to keep the research repo lean — it's archived off-repo in Matt's local
-`govsim-experiment-backup/govsim-experiment.tgz` (sha256 in that dir). The `raw_logs/` here are the
-condition-level logs, which are the evidence the report and stats are derived from. If the full
-per-run archive is ever needed for re-analysis, restore it from that tarball.
+committed here to keep the research repo lean — it's published as a **GitHub Release asset**:
+
+- Release: [`govsim-experiment-archive-v1`](https://github.com/credentum/vivarium-lab/releases/tag/govsim-experiment-archive-v1)
+- Asset: `govsim-experiment.tgz` (~108 MB), with `govsim-experiment.tgz.sha256` for integrity.
+
+The `raw_logs/` here are the condition-level logs, which are the evidence the report and stats are
+derived from. To restore the full per-run archive for re-analysis, download the release asset,
+verify the sha256, and `tar -xzf govsim-experiment.tgz`.
