@@ -138,6 +138,27 @@ jurors as "the wrong answer."
 Jurors run via OpenRouter, mixed model families per panel (a real panel isn't
 a monoculture). Model roster is a plain dict at the top of `scripts/juror.py`,
 matching this repo's existing `movable-feast` / `research-agents` convention.
+Model ids were pulled from a live query of OpenRouter's `/models` catalog
+rather than hardcoded from memory — some ids used in this repo's earlier
+studies had already been deprecated/renamed by the time this study started.
+
+Current roster: `anthropic/claude-haiku-4.5`, `openai/gpt-5-mini`,
+`google/gemini-2.5-flash`, `meta-llama/llama-4-maverick`,
+`deepseek/deepseek-v3.2`. Estimated pilot cost (240 calls, ~500 in / ~150 out
+tokens each): roughly $0.13.
+
+Two real quirks surfaced by live smoke-testing (not caught by `--dry-run`,
+which never makes an API call) and fixed before the pilot ran for real:
+
+- `deepseek/deepseek-v3.2` consistently returned `confidence: -1.0` despite
+  the instruction to use 0.0–1.0 — deterministic at temperature 0, so retries
+  alone wouldn't have fixed it. Fixed by making the confidence instruction in
+  `conditions.py`'s shared `FOOTER` more explicit ("never negative").
+- `openai/gpt-5-mini` is a reasoning model — its hidden chain-of-thought
+  tokens count against `max_tokens`. At the original budget (300) it burned
+  the whole budget on reasoning and returned empty content
+  (`finish_reason="length"`). Fixed with a per-model `max_tokens` override in
+  `JUROR_MODELS` (1500 for `gpt`, 300 for the others).
 
 ---
 

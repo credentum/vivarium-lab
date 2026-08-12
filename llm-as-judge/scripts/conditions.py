@@ -16,8 +16,9 @@ HEADER = (
 
 FOOTER = (
     "Respond with ONLY a JSON object in this exact format, no other text:\n"
-    '{{"chosen_answer": "<letter>", "confidence": <float between 0.0 and 1.0>, '
-    '"reason": "<one or two sentence reason>"}}'
+    '{{"chosen_answer": "<letter>", "confidence": <a decimal from 0.0 to 1.0 '
+    "inclusive, representing how sure you are -- 1.0 is fully confident, 0.0 "
+    'is a total guess; never negative>, "reason": "<one or two sentence reason>"}}'
 )
 
 CONTROL_MIDDLE = (

@@ -16,14 +16,20 @@ from pydantic import BaseModel, Field
 RATE_LIMIT_DELAY = 0.5
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
-# Mixed model families -- a real panel isn't a monoculture. Model ids match
-# slugs already confirmed working elsewhere in this workspace.
+# Mixed model families -- a real panel isn't a monoculture. Pulled from a
+# live query of OpenRouter's /models catalog (see README.md "Models") rather
+# than hardcoded from memory -- prior slugs like gemini-2.0-flash-001 had
+# already been deprecated/renamed by the time this was checked.
 JUROR_MODELS = {
-    "claude": {"model_id": "anthropic/claude-sonnet-4"},
-    "gpt": {"model_id": "openai/gpt-5.1"},
-    "gemini": {"model_id": "google/gemini-2.0-flash-001"},
-    "llama": {"model_id": "meta-llama/llama-3.3-70b-instruct"},
-    "deepseek": {"model_id": "deepseek/deepseek-v3.2"},
+    "claude": {"model_id": "anthropic/claude-haiku-4.5", "max_tokens": 300},
+    # gpt-5-mini is a reasoning model -- its hidden chain-of-thought tokens
+    # count against max_tokens. At 300 it burned the whole budget on
+    # reasoning and returned empty content (finish_reason="length"),
+    # confirmed against a live call. Needs real headroom.
+    "gpt": {"model_id": "openai/gpt-5-mini", "max_tokens": 1500},
+    "gemini": {"model_id": "google/gemini-2.5-flash", "max_tokens": 300},
+    "llama": {"model_id": "meta-llama/llama-4-maverick", "max_tokens": 300},
+    "deepseek": {"model_id": "deepseek/deepseek-v3.2", "max_tokens": 300},
 }
 
 
@@ -69,6 +75,7 @@ async def run_juror(
 
     config = JUROR_MODELS[juror_name]
     model_id = config["model_id"]
+    max_tokens = config.get("max_tokens", 300)
     api_key = os.environ.get("OPENROUTER_API_KEY")
 
     if not api_key:
@@ -90,7 +97,7 @@ async def run_juror(
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
-                max_tokens=300,
+                max_tokens=max_tokens,
                 temperature=0,
             )
             latency_ms = int((time.time() - start) * 1000)
