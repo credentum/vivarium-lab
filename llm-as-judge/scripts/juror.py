@@ -1,0 +1,119 @@
+"""Single juror call via OpenRouter: retry/backoff + structured JSON verdict.
+
+Mirrors the async OpenRouter pattern used elsewhere in this workspace
+(project-vivarium/research-agents/run_parallel_scouts.py) and the Pydantic
+confidence-scored contract convention (project-vivarium/press-corps/src/models/contracts.py).
+"""
+
+import os
+import re
+import json
+import time
+import asyncio
+from typing import Optional
+from pydantic import BaseModel, Field
+
+RATE_LIMIT_DELAY = 0.5
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
+# Mixed model families -- a real panel isn't a monoculture. Model ids match
+# slugs already confirmed working elsewhere in this workspace.
+JUROR_MODELS = {
+    "claude": {"model_id": "anthropic/claude-sonnet-4"},
+    "gpt": {"model_id": "openai/gpt-5.1"},
+    "gemini": {"model_id": "google/gemini-2.0-flash-001"},
+    "llama": {"model_id": "meta-llama/llama-3.3-70b-instruct"},
+    "deepseek": {"model_id": "deepseek/deepseek-v3.2"},
+}
+
+
+class JurorVerdict(BaseModel):
+    juror_name: str
+    model_id: str
+    item_id: str
+    condition: str  # "control" | "treatment"
+    chosen_answer: Optional[str] = None
+    confidence: float = Field(0.0, ge=0.0, le=1.0)
+    reason: str = ""
+    latency_ms: int = 0
+    error: Optional[str] = None
+
+
+def extract_json_object(text: str) -> dict:
+    """Extract a JSON object from raw model text, handling code fences."""
+    patterns = [
+        r"```json\s*(\{[\s\S]*?\})\s*```",
+        r"```\s*(\{[\s\S]*?\})\s*```",
+        r"(\{[\s\S]*\})",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                continue
+    raise ValueError(f"no JSON object found in response: {text[:200]!r}")
+
+
+async def run_juror(
+    juror_name: str,
+    item: dict,
+    system_prompt: str,
+    condition: str,
+    retry_count: int = 3,
+) -> JurorVerdict:
+    """Call one juror on one item under one condition, with retry/backoff."""
+    import openai
+    from conditions import build_user_prompt
+
+    config = JUROR_MODELS[juror_name]
+    model_id = config["model_id"]
+    api_key = os.environ.get("OPENROUTER_API_KEY")
+
+    if not api_key:
+        return JurorVerdict(
+            juror_name=juror_name, model_id=model_id, item_id=item["id"],
+            condition=condition, error="OPENROUTER_API_KEY not set",
+        )
+
+    client = openai.AsyncOpenAI(api_key=api_key, base_url=OPENROUTER_BASE_URL)
+    user_prompt = build_user_prompt(item)
+
+    last_error: Optional[Exception] = None
+    for attempt in range(retry_count):
+        try:
+            start = time.time()
+            response = await client.chat.completions.create(
+                model=model_id,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_tokens=300,
+                temperature=0,
+            )
+            latency_ms = int((time.time() - start) * 1000)
+            content = response.choices[0].message.content or ""
+            parsed = extract_json_object(content)
+
+            chosen = str(parsed.get("chosen_answer", "")).strip().lower()
+            if chosen not in item["choices"]:
+                raise ValueError(f"chosen_answer {chosen!r} not among item choices")
+
+            return JurorVerdict(
+                juror_name=juror_name, model_id=model_id, item_id=item["id"],
+                condition=condition, chosen_answer=chosen,
+                confidence=float(parsed.get("confidence", 0.0)),
+                reason=str(parsed.get("reason", ""))[:500],
+                latency_ms=latency_ms,
+            )
+        except Exception as e:
+            last_error = e
+            if attempt < retry_count - 1:
+                await asyncio.sleep(RATE_LIMIT_DELAY * (2**attempt))
+
+    return JurorVerdict(
+        juror_name=juror_name, model_id=model_id, item_id=item["id"],
+        condition=condition, error=str(last_error),
+    )
