@@ -6,6 +6,11 @@
 
 *Vivarium Lab | Pre-registered before any run*
 
+Part of [`verifiability-seam`](../README.md), the program studying what
+happens to a judging layer when the judges have an interest in the outcome.
+Not to be confused with LLM-as-judge (evaluation fidelity of a disinterested
+single judge) — see the program README for the distinction.
+
 ---
 
 ## The claim under test
@@ -136,8 +141,10 @@ jurors as "the wrong answer."
 ## Models
 
 Jurors run via OpenRouter, mixed model families per panel (a real panel isn't
-a monoculture). Model roster is a plain dict at the top of `scripts/juror.py`,
-matching this repo's existing `movable-feast` / `research-agents` convention.
+a monoculture). Model roster is a plain dict at the top of `../lib/juror.py`
+(shared across `verifiability-seam` experiments), matching this repo's
+existing `movable-feast` / `research-agents` convention for the OpenRouter
+call pattern itself.
 Model ids were pulled from a live query of OpenRouter's `/models` catalog
 rather than hardcoded from memory — some ids used in this repo's earlier
 studies had already been deprecated/renamed by the time this study started.

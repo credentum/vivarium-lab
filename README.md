@@ -20,6 +20,7 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 | [**Governance as Computation**](governance-as-computation/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
+| [**The Verifiability Seam**](verifiability-seam/) | What happens to a judging layer when the judges have a stake in the outcome. Pilot 001: staked panels don't collude by converging louder, they defect quietly — agreement dropped, not spiked. | In progress |
 
 ---
 
@@ -95,6 +96,33 @@ We used Anthropic's Agent Skills for persona/voice shaping. After 16 phases of t
 Key insight: Natural Language Routing works for tool selection but fails for task orchestration.
 
 [Read the full guide →](persona-skills/)
+
+---
+
+## The Verifiability Seam
+
+**What happens to a judging layer when the judges have a stake in the outcome**
+
+A research program, not a single study — see [verifiability-seam/](verifiability-seam/)
+for the full roadmap (001–004). Pilot 001 asked whether output-only signals
+(votes, confidence, latency — never model internals) can separate a staked,
+colluding LLM panel from an honest one.
+
+```
+Pilot 001, pre-registered AUROC >= 0.70            AUROC    Verdict
+──────────────────────────────────────────────────────────────────
+agreement_fraction (as hypothesized: high = bad)   0.089    SEAM FATAL
+agreement_fraction (reversed direction)            0.911    strong signal, wrong sign
+confidence_spread (unregistered, exploratory)      0.976    candidate for next pre-registration
+```
+
+Staked panels didn't collude by converging loudly on the wrong answer —
+some jurors held the correct answer against the incentive, which *lowered*
+agreement relative to already-near-unanimous honest panels rather than
+raising it. Not the hypothesized signal, but a real one, in the wrong
+direction. The pre-registered threshold was not moved after seeing this.
+
+[Read the full report →](verifiability-seam/001-collusion-separation/docs/PILOT_REPORT.md)
 
 ---
 

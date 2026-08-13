@@ -1,5 +1,10 @@
 """Single juror call via OpenRouter: retry/backoff + structured JSON verdict.
 
+Shared across all verifiability-seam experiments (001-collusion-separation,
+future 002/003/004) -- this module knows nothing about any specific
+experiment's conditions or item schema beyond "an item has an id and a
+choices dict." Prompt construction is the calling experiment's job.
+
 Mirrors the async OpenRouter pattern used elsewhere in this workspace
 (project-vivarium/research-agents/run_parallel_scouts.py) and the Pydantic
 confidence-scored contract convention (project-vivarium/press-corps/src/models/contracts.py).
@@ -37,7 +42,7 @@ class JurorVerdict(BaseModel):
     juror_name: str
     model_id: str
     item_id: str
-    condition: str  # "control" | "treatment"
+    condition: str  # free-form label, meaning defined by the calling experiment
     chosen_answer: Optional[str] = None
     confidence: float = Field(0.0, ge=0.0, le=1.0)
     reason: str = ""
@@ -66,12 +71,17 @@ async def run_juror(
     juror_name: str,
     item: dict,
     system_prompt: str,
+    user_prompt: str,
     condition: str,
     retry_count: int = 3,
 ) -> JurorVerdict:
-    """Call one juror on one item under one condition, with retry/backoff."""
+    """Call one juror on one item under one condition, with retry/backoff.
+
+    `system_prompt` and `user_prompt` are built by the calling experiment
+    (e.g. 001-collusion-separation's conditions.py) -- this module has no
+    opinion on condition semantics or prompt wording.
+    """
     import openai
-    from conditions import build_user_prompt
 
     config = JUROR_MODELS[juror_name]
     model_id = config["model_id"]
@@ -85,7 +95,6 @@ async def run_juror(
         )
 
     client = openai.AsyncOpenAI(api_key=api_key, base_url=OPENROUTER_BASE_URL)
-    user_prompt = build_user_prompt(item)
 
     last_error: Optional[Exception] = None
     for attempt in range(retry_count):
