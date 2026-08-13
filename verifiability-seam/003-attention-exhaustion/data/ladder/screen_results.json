@@ -1,0 +1,68 @@
+{
+  "results": {
+    "clear_01": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_02": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_03": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_04": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_05": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_06": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_07": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_08": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_09": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_10": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_11": {
+      "claude": 1.0,
+      "gemini": 1.0
+    },
+    "clear_12": {
+      "claude": 1.0,
+      "gemini": 1.0
+    }
+  },
+  "passed": [
+    "clear_01",
+    "clear_02",
+    "clear_03",
+    "clear_04",
+    "clear_05",
+    "clear_06",
+    "clear_07",
+    "clear_08",
+    "clear_09",
+    "clear_10",
+    "clear_11",
+    "clear_12"
+  ],
+  "k": 5,
+  "temperature": 0.7
+}

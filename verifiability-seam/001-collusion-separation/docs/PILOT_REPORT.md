@@ -83,6 +83,21 @@ detector likely goes blind exactly when it's needed. It may be a good
 detector for "an incentive was present but didn't fully work," which is a
 real and different thing from "the panel is compromised."
 
+**Follow-up analysis** (see
+[`independence-and-panel-selection.md`](../../docs/independence-and-panel-selection.md)):
+the dissent-signal ceiling above stands, but a decomposition of *which*
+jurors drive the spread surfaced something bigger. `confidence_spread` is
+disproportionately carried by one juror (DeepSeek, whose confidence craters
+−0.480 under Treatment against −0.023 to −0.230 for the other four) — real
+and unanimous in direction, but unevenly distributed, so a differently
+composed panel would show a weaker detector, not the same one. A
+composition-robust alternative was found on the same data:
+`mean_confidence`, reversed, hits the identical AUROC (0.976) without
+depending on any single juror's idiosyncratic honesty. That analysis also
+surfaced a governance attack that needs no collusion at all — staffing a
+panel with confidently-reporting jurors makes the detector go dark by
+selection, not corruption.
+
 ## Revised recommendations before any further pre-registration
 
 1. **Do not move the 0.70 threshold or the SEAM FATAL/DEFENSIBLE framing

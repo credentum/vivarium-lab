@@ -41,11 +41,18 @@ layers its own interpretation on top of the generic panel output. See
 |---|---|---|
 | [001 — collusion separation](001-collusion-separation/) | Can output-only signals separate a staked panel from an honest one? | Pilot complete — inconclusive on the primary question (item bank instrument failed, see below), but a clean 75% majority-flip rate on unambiguous items and a real confound in the stake design. See [PILOT_REPORT](001-collusion-separation/docs/PILOT_REPORT.md). |
 | 002 — overturn rate | Does an escalation layer ever reverse the layer below it, or is rigor decorative? | Not started |
-| 003 — attention exhaustion | A tired panel emits the same signature as a captured one: fast, unanimous, unreasoned. Can anything tell them apart? | Not started |
+| 003 — attention exhaustion | A tired panel emits the same signature as a captured one: fast, unanimous, unreasoned. Can anything tell them apart? | Dose-finding only, deliberately stopped short of a full run — no exhaustion signature found in models on clear items through docket position 30 (clean instrumentation, no floor effect), a narrow null consistent with 001's own inversion. Gate A (empirical contested-item bank) declined as not worth the spend — see reasoning inline in session notes; revisit only if the underlying panel-independence question changes. |
 | 004 — iteration | Does honesty emerge when the horizon is indefinite, and collapse when the end date is known? | Not started |
+| Kill 3 — attrition under rigor | Do honest participants leave as the board gets stricter while colluders stay? | Structurally out of reach for this program — agents don't quit. Gated behind a human venue, not forgotten. |
 
 001 and 003 are the same measurement problem approached from two directions
 — a good sign the category is real, not an artifact of how 001 was framed.
+
+**Cross-cutting finding, not tied to one experiment:** decomposing 001's
+`confidence_spread` result surfaced a governance attack that needs no
+collusion at all — a panel staffed with confidently-reporting jurors makes
+the detector go dark by selection, not corruption. See
+[`docs/independence-and-panel-selection.md`](docs/independence-and-panel-selection.md).
 
 ## Discipline
 
