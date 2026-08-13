@@ -91,9 +91,12 @@ disproportionately carried by one juror (DeepSeek, whose confidence craters
 −0.480 under Treatment against −0.023 to −0.230 for the other four) — real
 and unanimous in direction, but unevenly distributed, so a differently
 composed panel would show a weaker detector, not the same one. A
-composition-robust alternative was found on the same data:
-`mean_confidence`, reversed, hits the identical AUROC (0.976) without
-depending on any single juror's idiosyncratic honesty. That analysis also
+composition-robust alternative was found and *measured* (leave-one-out,
+not just argued structurally) on the same data: `mean_confidence` loses at
+most 6.7% of its AUROC when any single juror is excluded, against
+`confidence_spread`'s 33% — robust to losing any one of these five members,
+though not to a panel adversarially staffed entirely with low-variance
+jurors (see the writeup's §4). That analysis also
 surfaced a governance attack that needs no collusion at all — staffing a
 panel with confidently-reporting jurors makes the detector go dark by
 selection, not corruption.
