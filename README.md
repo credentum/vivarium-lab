@@ -20,6 +20,7 @@ Vivarium Lab is Credentum's research arm. We test AI capabilities with simple, h
 | [**Governance as Computation**](governance-as-computation/) | Doing the math for LLM agents prevents commons collapse. Raw information doesn't help — the computed answer is the active ingredient. 0% → 80% survival. | Complete |
 | [**Movable Feast**](movable-feast/) | LLMs know lunar holidays but can't find them on a calendar. 0% → 100% accuracy gap. | Complete |
 | [**Persona Skills**](persona-skills/) | Natural Language Routing achieves 81% reliability—then breaks on compound prompts. | Complete |
+| [**The Verifiability Seam**](verifiability-seam/) | What happens to a judging layer when the judges have a stake in the outcome. Pilot 001: staked panels don't collude by converging louder, they defect quietly — agreement dropped, not spiked. | In progress |
 
 ---
 
@@ -95,6 +96,39 @@ We used Anthropic's Agent Skills for persona/voice shaping. After 16 phases of t
 Key insight: Natural Language Routing works for tool selection but fails for task orchestration.
 
 [Read the full guide →](persona-skills/)
+
+---
+
+## The Verifiability Seam
+
+**What happens to a judging layer when the judges have a stake in the outcome**
+
+A research program, not a single study — see [verifiability-seam/](verifiability-seam/)
+for the full roadmap (001–004). Pilot 001 asked whether output-only signals
+(votes, confidence, latency — never model internals) can separate a staked,
+colluding LLM panel from an honest one.
+
+Pilot 001's own ambiguity gate caught a fatal flaw in its item bank before
+any verdict could be trusted: only 1 of 12 hand-authored "ambiguous" items
+actually produced honest disagreement, so the run couldn't distinguish
+"detects collusion" from "detects easy consensus." The pre-registered
+AUROC verdict is withdrawn as inconclusive — not flipped, withdrawn.
+
+```
+Pilot 001 — what survives the broken item bank
+──────────────────────────────────────────────────────────────────
+Clear items whose Treatment majority flipped to wrong    9 / 12  (75%)
+...of those, escaped with mean confidence >= 0.80         4 / 9
+```
+
+An explicit stake moved the panel's majority off an unambiguous, correct
+answer three times out of four — and didn't always announce itself with
+visibly low confidence. Separately: the stake was framed as an instruction
+to state a known-wrong answer, which reads as a refusal-triggering command
+to lie rather than a genuine incentive — real collusion doesn't arrive that
+way. Both the broken item bank and the stake framing need fixing before 002.
+
+[Read the full report →](verifiability-seam/001-collusion-separation/docs/PILOT_REPORT.md)
 
 ---
 
