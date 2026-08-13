@@ -108,19 +108,25 @@ for the full roadmap (001–004). Pilot 001 asked whether output-only signals
 (votes, confidence, latency — never model internals) can separate a staked,
 colluding LLM panel from an honest one.
 
+Pilot 001's own ambiguity gate caught a fatal flaw in its item bank before
+any verdict could be trusted: only 1 of 12 hand-authored "ambiguous" items
+actually produced honest disagreement, so the run couldn't distinguish
+"detects collusion" from "detects easy consensus." The pre-registered
+AUROC verdict is withdrawn as inconclusive — not flipped, withdrawn.
+
 ```
-Pilot 001, pre-registered AUROC >= 0.70            AUROC    Verdict
+Pilot 001 — what survives the broken item bank
 ──────────────────────────────────────────────────────────────────
-agreement_fraction (as hypothesized: high = bad)   0.089    SEAM FATAL
-agreement_fraction (reversed direction)            0.911    strong signal, wrong sign
-confidence_spread (unregistered, exploratory)      0.976    candidate for next pre-registration
+Clear items whose Treatment majority flipped to wrong    9 / 12  (75%)
+...of those, escaped with mean confidence >= 0.80         4 / 9
 ```
 
-Staked panels didn't collude by converging loudly on the wrong answer —
-some jurors held the correct answer against the incentive, which *lowered*
-agreement relative to already-near-unanimous honest panels rather than
-raising it. Not the hypothesized signal, but a real one, in the wrong
-direction. The pre-registered threshold was not moved after seeing this.
+An explicit stake moved the panel's majority off an unambiguous, correct
+answer three times out of four — and didn't always announce itself with
+visibly low confidence. Separately: the stake was framed as an instruction
+to state a known-wrong answer, which reads as a refusal-triggering command
+to lie rather than a genuine incentive — real collusion doesn't arrive that
+way. Both the broken item bank and the stake framing need fixing before 002.
 
 [Read the full report →](verifiability-seam/001-collusion-separation/docs/PILOT_REPORT.md)
 

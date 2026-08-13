@@ -39,7 +39,7 @@ layers its own interpretation on top of the generic panel output. See
 
 | # | Question | Status |
 |---|---|---|
-| [001 — collusion separation](001-collusion-separation/) | Can output-only signals separate a staked panel from an honest one? | Pilot complete — SEAM FATAL on the pre-registered metric, strong reversed/secondary signal. See [PILOT_REPORT](001-collusion-separation/docs/PILOT_REPORT.md). |
+| [001 — collusion separation](001-collusion-separation/) | Can output-only signals separate a staked panel from an honest one? | Pilot complete — inconclusive on the primary question (item bank instrument failed, see below), but a clean 75% majority-flip rate on unambiguous items and a real confound in the stake design. See [PILOT_REPORT](001-collusion-separation/docs/PILOT_REPORT.md). |
 | 002 — overturn rate | Does an escalation layer ever reverse the layer below it, or is rigor decorative? | Not started |
 | 003 — attention exhaustion | A tired panel emits the same signature as a captured one: fast, unanimous, unreasoned. Can anything tell them apart? | Not started |
 | 004 — iteration | Does honesty emerge when the horizon is indefinite, and collapse when the end date is known? | Not started |
